@@ -1,0 +1,26 @@
+[user]
+  name = Zachary Scott
+  email = e@zzak.io
+[color]
+  branch = auto
+  diff = auto
+  grep = auto
+  status = auto
+  ui = true
+[color "diff"]
+  whitespace = red reverse
+[core]
+  editor = vim
+[alias]
+  st = status
+  cd = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
+  ds = diff --staged
+  lg = log -p
+  ls = ls-files
+  g  = grep
+[grep]
+  lineNumber = true
