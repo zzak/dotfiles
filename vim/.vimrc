@@ -50,12 +50,10 @@ nmap <D-k> gk nmap <D-4> g$
 nmap <D-6> g^
 nmap <D-0> g^
 
-" Clear last search highlight
+" Clear last search highlight with Spacebar
 nnoremap <Space> :noh<cr>
 
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-
-"add some line space for easy reading
+" Add some line space for easy reading
 set linespace=4
 
 "indent settings
@@ -66,20 +64,13 @@ set expandtab
 " for C
 au FileType c setl ts=8 sw=4 softtabstop=4 noexpandtab
 
-"set autoindent
-
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
 set mouse=niv
 set ttymouse=xterm2
 set clipboard=unnamed
 
 set hidden
 
-" Map ctrl-movement keys to window switching
+" Map CTRL+{h,j,k,l} keys to window switching
 nnoremap <c-k> <C-w><Up>
 nnoremap <c-j> <C-w><Down>
 nnoremap <c-l> <C-w><Right>
