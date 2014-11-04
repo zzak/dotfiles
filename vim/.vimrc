@@ -23,7 +23,7 @@ set incsearch
 set hlsearch
 set number
 set ruler
-set directory=/tmp
+set directory=~/.swap
 set title
 set wildmode=list:longest
 set wildmenu
