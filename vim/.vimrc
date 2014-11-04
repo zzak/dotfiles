@@ -31,7 +31,6 @@ set wildignore=*.o,*.obj,*~
 set novisualbell
 set noerrorbells
 set pastetoggle=<F2>
-set showbreak=...
 set wrap linebreak nolist
 set scrolloff=7
 set ttyscroll=3
