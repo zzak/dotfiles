@@ -34,20 +34,6 @@ set pastetoggle=<F2>
 set wrap linebreak nolist
 set scrolloff=7
 set ttyscroll=3
-" Enables the reading of .vimrc, .exrc and .gvimrc in the current directory.
-set exrc
-set secure
-"mapping for command key to map navigation thru display lines instead
-"of just numbered lines
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
 
 " Clear last search highlight with Spacebar
 nnoremap <Space> :noh<cr>
