@@ -22,5 +22,6 @@
   lg = log -p
   ls = ls-files
   g  = grep
+  pull = pull -r
 [grep]
   lineNumber = true
