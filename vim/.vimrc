@@ -64,3 +64,11 @@ nnoremap <c-h> <C-w><Left>
 " Map - and = to resize window
 nnoremap - <C-W>_
 nnoremap = <C-W>=
+
+" Adds whitespace highlighter by @eileencodes:
+" https://github.com/rails/rails/pull/17526#discussion_r19922368
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
