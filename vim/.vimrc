@@ -9,7 +9,7 @@ fu! Jstdate()
   return substitute(date, "\\\n", "", "")
 endfu
 fu! ChangeLogStamp()
-  return Jstdate() . "  Zachary Scott  <e@zzak.io>"
+  return Jstdate() . "  Zachary Scott  <zzak@ruby-lang.org>"
 endfu
 imap <C-J> <C-R>=Jstdate()<CR>
 imap <C-T> <C-R>=ChangeLogStamp()<CR>
