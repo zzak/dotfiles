@@ -18,10 +18,6 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
-if [ `type -t direnv` == 'file' ]; then
-  eval "$(direnv hook bash)"
-fi
-
 if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
   source /usr/local/opt/chruby/share/chruby/chruby.sh
   source /usr/local/opt/chruby/share/chruby/auto.sh
