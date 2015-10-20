@@ -26,3 +26,11 @@ fi
 function rtmp_open() {
   rtmpdump -r $1 --quiet | /Applications/VLC.app/Contents/MacOS/VLC fd://0 --playlist-autostart
 }
+
+function new_log() {
+  DATE=`date +%Y-%m-%d`
+  STAMP=`date "+%a %b %e %T %Y"`
+
+  echo "$STAMP
+    " > "$DATE.md" && $EDITOR "$DATE.md"
+}
