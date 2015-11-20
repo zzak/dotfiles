@@ -1,7 +1,0 @@
-ServerAliveInterval 15
-ServerAliveCountMax 20
-
-Host shutterfly.heroku.com
-  Hostname heroku.com
-  IdentitiesOnly yes
-  IdentityFile /Users/zzak/.ssh/work
