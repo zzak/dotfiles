@@ -18,14 +18,10 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
-if [ -f /usr/local/opt/chruby/share/chruby/chruby.sh ]; then
-  source /usr/local/opt/chruby/share/chruby/chruby.sh
-  source /usr/local/opt/chruby/share/chruby/auto.sh
+if [ -f /usr/local/share/chruby/chruby.sh ]; then
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
 fi
-
-function rtmp_open() {
-  rtmpdump -r $1 --quiet | /Applications/VLC.app/Contents/MacOS/VLC fd://0 --playlist-autostart
-}
 
 function new_log() {
   DATE=`date +%Y-%m-%d`
@@ -34,3 +30,12 @@ function new_log() {
   echo "$STAMP
     " > "$DATE.md" && $EDITOR "$DATE.md"
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### Add ~/.bin to PATH
+export PATH="${HOME}/.bin:$PATH"
+
+### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
+eval `gnome-keyring-daemon --start`
