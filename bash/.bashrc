@@ -31,6 +31,10 @@ function new_log() {
     " > "$DATE.md" && $EDITOR "$DATE.md"
 }
 
+function list_open_sockets() {
+  find / -type s
+}
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
