@@ -11,6 +11,7 @@
   whitespace = red reverse
 [core]
   editor = em
+  excludesfile = ~/.gitignore
 [alias]
   st = status
   cd = commit
