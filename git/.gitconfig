@@ -10,7 +10,7 @@
 [color "diff"]
   whitespace = red reverse
 [core]
-  editor = emacs -nw
+  editor = em
 [alias]
   st = status
   cd = commit
