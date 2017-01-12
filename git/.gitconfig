@@ -10,7 +10,7 @@
 [color "diff"]
   whitespace = red reverse
 [core]
-  editor = em
+  editor = emacsclient
   excludesfile = ~/.gitignore
 [alias]
   st = status
