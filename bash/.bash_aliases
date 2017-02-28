@@ -8,5 +8,5 @@ alias youtube='youtube-dl --audio-format mp3 -x --sleep-interval 15 --socket-tim
 #alias rm='trash'
 alias ed='emacs --daemon'
 alias em='emacsclient -nw'
-alias vi='em'
-alias vim='em'
+#alias vi='em'
+#alias vim='em'
