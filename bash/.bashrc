@@ -149,4 +149,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Add ~/.bin to PATH
 export PATH="${HOME}/.bin:$PATH"
 
+export PATH="$HOME/.cargo/env:$PATH"
 
+export GOROOT="$HOME/.bin/go"
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+
+export PATH="$HOME/.bin/elixir/bin:$PATH"
