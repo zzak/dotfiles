@@ -9,5 +9,4 @@
   (add-to-list 'load-path (concat user-emacs-directory "packages/" l))
 (autoload (intern l) (concat l ".el")))
 
-;;(autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
