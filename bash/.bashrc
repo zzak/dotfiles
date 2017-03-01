@@ -156,3 +156,6 @@ export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 export PATH="$HOME/.bin/elixir/bin:$PATH"
+
+### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
+eval `gnome-keyring-daemon --start`
