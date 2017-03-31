@@ -1,6 +1,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
-`(setq indent-tab-mode nil)`
+(setq indent-tab-mode nil)
 
 (let ((default-directory  "~/.emacs.d/packages/"))
   (normal-top-level-add-subdirs-to-load-path))
