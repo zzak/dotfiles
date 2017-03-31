@@ -143,6 +143,9 @@ function list_open_sockets() {
   find / -type s
 }
 
+### Add JAVA_HOME
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -159,3 +162,4 @@ export PATH="$HOME/.bin/elixir/bin:$PATH"
 
 ### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
 eval `gnome-keyring-daemon --start`
+
