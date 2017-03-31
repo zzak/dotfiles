@@ -2,8 +2,7 @@
 
 (setq indent-tab-mode nil)
 
-(let ((default-directory  "~/.emacs.d/packages/"))
-  (normal-top-level-add-subdirs-to-load-path))
+(setq make-backup-files nil)
 
 (dolist (l (directory-files (concat user-emacs-directory "packages") nil "^[^\.]"))
   (add-to-list 'load-path (concat user-emacs-directory "packages/" l))
