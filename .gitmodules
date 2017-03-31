@@ -10,3 +10,12 @@
 [submodule "emacs/.emacs.d/packages/company-mode"]
 	path = emacs/.emacs.d/packages/company-mode
 	url = https://github.com/company-mode/company-mode
+[submodule "emacs/.emacs.d/packages/pkg-info"]
+	path = emacs/.emacs.d/packages/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el
+[submodule "emacs/.emacs.d/packages/epl"]
+	path = emacs/.emacs.d/packages/epl
+	url = https://github.com/cask/epl
+[submodule "emacs/.emacs.d/packages/dash"]
+	path = emacs/.emacs.d/packages/dash
+	url = https://github.com/magnars/dash.el
