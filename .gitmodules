@@ -1,3 +1,12 @@
 [submodule "emacs/.emacs.d/packages/rust-mode"]
 	path = emacs/.emacs.d/packages/rust-mode
 	url = https://github.com/rust-lang/rust-mode
+[submodule "emacs/.emacs.d/packages/elixir-mode"]
+	path = emacs/.emacs.d/packages/elixir-mode
+	url = https://github.com/elixir-lang/emacs-elixir
+[submodule "emacs/.emacs.d/packages/alchemist.el"]
+	path = emacs/.emacs.d/packages/alchemist.el
+	url = https://github.com/tonini/alchemist.el
+[submodule "emacs/.emacs.d/packages/company-mode"]
+	path = emacs/.emacs.d/packages/company-mode
+	url = https://github.com/company-mode/company-mode
