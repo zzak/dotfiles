@@ -13,3 +13,4 @@
 (require 'elixir-mode)
 (require 'alchemist)
 (require 'rust-mode)
+(require 'yaml-mode)
