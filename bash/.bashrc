@@ -143,6 +143,18 @@ function list_open_sockets() {
   find / -type s
 }
 
+function docker_clear_containers() {
+  docker rm -f $(docker ps -a -q)
+}
+
+function docker_clear_images() {
+  docker rmi -f $(docker images -a -q)
+}
+
+function docker_clear_volumes() {
+  docker volume rm $(docker volume ls -q)
+}
+
 ### Add JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 

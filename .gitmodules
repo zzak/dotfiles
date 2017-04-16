@@ -19,3 +19,6 @@
 [submodule "emacs/.emacs.d/packages/dash"]
 	path = emacs/.emacs.d/packages/dash
 	url = https://github.com/magnars/dash.el
+[submodule "emacs/.emacs.d/packages/yaml-mode"]
+	path = emacs/.emacs.d/packages/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode
