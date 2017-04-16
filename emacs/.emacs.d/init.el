@@ -4,6 +4,10 @@
 
 (setq make-backup-files nil)
 
+(setq-default word-wrap t)
+
+(setq menu-bar-mode -1)
+
 (dolist (l (directory-files "~/.emacs.d/packages" nil "^[^\.]"))
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
   (autoload (intern l) (concat "~/.emacs.d/packages/" l ".el")))
