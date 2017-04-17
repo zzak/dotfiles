@@ -8,6 +8,8 @@
 
 (setq menu-bar-mode -1)
 
+(setq-default show-trailing-whitespace t)
+
 (dolist (l (directory-files "~/.emacs.d/packages" nil "^[^\.]"))
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
   (autoload (intern l) (concat "~/.emacs.d/packages/" l ".el")))
