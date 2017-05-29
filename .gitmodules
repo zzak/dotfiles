@@ -22,3 +22,6 @@
 [submodule "emacs/.emacs.d/packages/yaml-mode"]
 	path = emacs/.emacs.d/packages/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode
+[submodule "emacs/.emacs.d/packages/monroe"]
+	path = emacs/.emacs.d/packages/monroe
+	url = https://github.com/sanel/monroe
