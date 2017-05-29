@@ -2,6 +2,9 @@
 
 (setq indent-tab-mode nil)
 
+(global-linum-mode t)
+(setq linum-format "%4d ")
+
 (setq make-backup-files nil)
 
 (setq-default word-wrap t)
