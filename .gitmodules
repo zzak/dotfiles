@@ -28,3 +28,6 @@
 [submodule "emacs/.emacs.d/packages/cider"]
 	path = emacs/.emacs.d/packages/cider
 	url = https://github.com/clojure-emacs/cider.git
+[submodule "emacs/.emacs.d/packages/clojure-mode"]
+	path = emacs/.emacs.d/packages/clojure-mode
+	url = https://github.com/clojure-emacs/clojure-mode.git
