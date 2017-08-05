@@ -158,6 +158,9 @@ function docker_clear_volumes() {
 ### Add JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
+### Add IntelliJ IDEA
+export PATH="$HOME/.itj/bin:$PATH"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
