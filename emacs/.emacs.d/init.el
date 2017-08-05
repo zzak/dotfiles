@@ -23,5 +23,5 @@
 (require 'alchemist)
 (require 'rust-mode)
 (require 'yaml-mode)
-(require 'monroe)
+(require 'cider)
 (add-hook 'clojure-mode-hook 'clojure-enable-monroe)
