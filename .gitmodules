@@ -31,3 +31,6 @@
 [submodule "emacs/.emacs.d/packages/clojure-mode"]
 	path = emacs/.emacs.d/packages/clojure-mode
 	url = https://github.com/clojure-emacs/clojure-mode.git
+[submodule "emacs/.emacs.d/packages/smartparens"]
+	path = emacs/.emacs.d/packages/smartparens
+	url = https://github.com/Fuco1/smartparens.git

@@ -25,4 +25,6 @@
 (require 'yaml-mode)
 (require 'clojure-mode)
 (require 'cider)
-(add-hook 'clojure-mode-hook 'clojure-enable-monroe)
+(require 'smartparens-config)
+(add-hook 'clojure-mode-hook #'clojure-enable-monroe)
+(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
