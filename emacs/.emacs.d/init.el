@@ -26,5 +26,6 @@
 (require 'clojure-mode)
 (require 'cider)
 (require 'smartparens-config)
+(smartparens-global-mode t)
 (add-hook 'clojure-mode-hook #'clojure-enable-monroe)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
