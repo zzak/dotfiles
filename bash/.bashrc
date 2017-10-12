@@ -129,6 +129,8 @@ export SVN_EDITOR=em
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
+
+  chruby `chruby | head -1 | cut -b 4-`
 fi
 
 function new_log() {
