@@ -157,6 +157,10 @@ function docker_clear_volumes() {
   docker volume rm $(docker volume ls -q)
 }
 
+function genpass() {
+  ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
+}
+
 ### Add JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
