@@ -25,12 +25,6 @@
 [submodule "emacs/.emacs.d/packages/monroe"]
 	path = emacs/.emacs.d/packages/monroe
 	url = https://github.com/sanel/monroe
-[submodule "emacs/.emacs.d/packages/cider"]
-	path = emacs/.emacs.d/packages/cider
-	url = https://github.com/clojure-emacs/cider.git
 [submodule "emacs/.emacs.d/packages/clojure-mode"]
 	path = emacs/.emacs.d/packages/clojure-mode
 	url = https://github.com/clojure-emacs/clojure-mode.git
-[submodule "emacs/.emacs.d/packages/smartparens"]
-	path = emacs/.emacs.d/packages/smartparens
-	url = https://github.com/Fuco1/smartparens.git
