@@ -161,9 +161,6 @@ function genpass() {
   ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
 }
 
-### Add Firefox dev
-export PATH="$HOME/.bin/firefox-dev:$PATH"
-
 ### Add JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
