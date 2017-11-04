@@ -3,17 +3,6 @@ syntax on
 let mapleader = ","
 set t_Co=256
 set background=light
-
-fu! Jstdate()
-  let date = system("TZ=Japan date +'%a %b %e %T %Y'")
-  return substitute(date, "\\\n", "", "")
-endfu
-fu! ChangeLogStamp()
-  return Jstdate() . "  Zachary Scott  <zzak@ruby-lang.org>"
-endfu
-imap <C-J> <C-R>=Jstdate()<CR>
-imap <C-T> <C-R>=ChangeLogStamp()<CR>
-
 set nocompatible
 set backspace=indent,eol,start
 set history=1000
