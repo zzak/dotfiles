@@ -28,3 +28,6 @@
 [submodule "emacs/.emacs.d/packages/clojure-mode"]
 	path = emacs/.emacs.d/packages/clojure-mode
 	url = https://github.com/clojure-emacs/clojure-mode.git
+[submodule "emacs/.emacs.d/packages/go-mode"]
+	path = emacs/.emacs.d/packages/go-mode
+	url = https://github.com/dominikh/go-mode.el.git

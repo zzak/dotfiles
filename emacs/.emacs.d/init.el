@@ -41,3 +41,4 @@
 (require 'clojure-mode)
 (require 'monroe)
 (require 'paredit)
+(require 'go-mode)
