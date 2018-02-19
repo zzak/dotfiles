@@ -41,4 +41,8 @@
 (require 'clojure-mode)
 (require 'monroe)
 (require 'paredit)
+
+(setq gofmt-command "goimports")
 (require 'go-mode)
+(add-hook 'before-save-hook 'gofmt-before-save)
+(require 'go-rename)
