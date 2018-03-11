@@ -18,6 +18,9 @@
 
 (setq-default show-trailing-whitespace t)
 
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
 (dolist (l (directory-files "~/.emacs.d/packages" nil "^[^\.]"))
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
   (autoload (intern l) (concat "~/.emacs.d/packages/" l ".el")))
