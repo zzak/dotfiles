@@ -58,3 +58,6 @@
 (autoload 'gfm-mode "markdown-mode"
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+(defun timestamp () (interactive)
+       (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
