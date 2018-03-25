@@ -31,3 +31,6 @@
 [submodule "emacs/.emacs.d/packages/go-mode"]
 	path = emacs/.emacs.d/packages/go-mode
 	url = https://github.com/dominikh/go-mode.el.git
+[submodule "emacs/.emacs.d/packages/markdown-mode"]
+	path = emacs/.emacs.d/packages/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode
