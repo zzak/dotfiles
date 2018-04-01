@@ -183,6 +183,9 @@ export PATH="$HOME/.bin/elixir/bin:$PATH"
 
 export PATH="$PATH:$HOME/.roswell/bin"
 
+### Binaries installed by pip
+export PATH="$PATH:$HOME/.local/bin"
+
 ### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
 eval `gnome-keyring-daemon --start`
 
