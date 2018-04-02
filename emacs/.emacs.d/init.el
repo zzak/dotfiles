@@ -61,3 +61,27 @@
 
 (defun timestamp () (interactive)
        (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
+
+;; Thanks phil ;)
+(defvar clj-last-test "user")
+
+(defun clj-run-tests (run-last)
+  (interactive "P")
+  (monroe-send-eval-string
+   (format "%s" `(clojure.test/run-tests
+                  (quote ,(if run-last
+                              clj-last-test
+                            (setq clj-last-test (clojure-find-ns))))))
+   (monroe-make-response-handler)))
+
+(eval-after-load 'clojure-mode
+  '(define-key clojure-mode-map (kbd "C-c C-t") 'clj-run-tests))
+
+(defun clj-run-focused-test ()
+  (interactive)
+  (monroe-send-eval-string
+   (format "%s" `(clojure.test/test-var *1))
+   (monroe-make-response-handler)))
+
+(eval-after-load 'clojure-mode
+  '(define-key clojure-mode-map (kbd "C-c t") 'clj-run-focused-test))
