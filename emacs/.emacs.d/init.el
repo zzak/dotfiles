@@ -1,5 +1,3 @@
-(global-set-key (kbd "C-x g") 'magit-status)
-
 ;; Mitigate Bug#28350 (security) in Emacs 25.2 and earlier.
 (eval-after-load "enriched"
   '(defun enriched-decode-display-prop (start end &optional param)
@@ -44,6 +42,10 @@
 (require 'clojure-mode)
 (require 'monroe)
 (require 'paredit)
+
+(add-to-list 'load-path "~/.emacs.d/packages/magit/lisp")
+(load "~/.emacs.d/packages/magit/lisp/magit.el")
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (setq gofmt-command "goimports")
 (require 'go-mode)

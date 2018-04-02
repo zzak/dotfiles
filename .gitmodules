@@ -34,3 +34,15 @@
 [submodule "emacs/.emacs.d/packages/markdown-mode"]
 	path = emacs/.emacs.d/packages/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
+[submodule "emacs/.emacs.d/packages/magit"]
+	path = emacs/.emacs.d/packages/magit
+	url = https://github.com/magit/magit
+[submodule "emacs/.emacs.d/packages/magit-popup"]
+	path = emacs/.emacs.d/packages/magit-popup
+	url = https://github.com/magit/magit-popup
+[submodule "emacs/.emacs.d/packages/ghub"]
+	path = emacs/.emacs.d/packages/ghub
+	url = https://github.com/magit/ghub
+[submodule "emacs/.emacs.d/packages/with-editor"]
+	path = emacs/.emacs.d/packages/with-editor
+	url = https://github.com/magit/with-editor
