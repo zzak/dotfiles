@@ -35,6 +35,9 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
+(autoload 'rainbow-delimiters-mode "rainbow-delimiters" "Emacs rainbow delimiters mode" t)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 (require 'elixir-mode)
 (require 'alchemist)
 (require 'rust-mode)
@@ -42,6 +45,7 @@
 (require 'clojure-mode)
 (require 'monroe)
 (require 'paredit)
+(require 'rainbow-delimiters)
 
 (add-to-list 'load-path "~/.emacs.d/packages/magit/lisp")
 (load "~/.emacs.d/packages/magit/lisp/magit.el")

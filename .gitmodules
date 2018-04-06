@@ -46,3 +46,6 @@
 [submodule "emacs/.emacs.d/packages/with-editor"]
 	path = emacs/.emacs.d/packages/with-editor
 	url = https://github.com/magit/with-editor
+[submodule "emacs/.emacs.d/packages/rainbow-delimiters"]
+	path = emacs/.emacs.d/packages/rainbow-delimiters
+	url = https://github.com/Fanael/rainbow-delimiters
