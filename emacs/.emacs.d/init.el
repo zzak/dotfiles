@@ -34,6 +34,7 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(eval-after-load "paredit" #'(show-paren-mode))
 
 (autoload 'rainbow-delimiters-mode "rainbow-delimiters" "Emacs rainbow delimiters mode" t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
