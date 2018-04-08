@@ -49,3 +49,6 @@
 [submodule "emacs/.emacs.d/packages/rainbow-delimiters"]
 	path = emacs/.emacs.d/packages/rainbow-delimiters
 	url = https://github.com/Fanael/rainbow-delimiters
+[submodule "emacs/.emacs.d/packages/ggtags"]
+	path = emacs/.emacs.d/packages/ggtags
+	url = https://github.com/leoliu/ggtags

@@ -39,6 +39,8 @@
 (autoload 'rainbow-delimiters-mode "rainbow-delimiters" "Emacs rainbow delimiters mode" t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+(add-hook 'prog-mode-hook #'ggtags-mode)
+
 (require 'elixir-mode)
 (require 'alchemist)
 (require 'rust-mode)
@@ -47,6 +49,7 @@
 (require 'monroe)
 (require 'paredit)
 (require 'rainbow-delimiters)
+(require 'ggtags)
 
 (add-to-list 'load-path "~/.emacs.d/packages/magit/lisp")
 (load "~/.emacs.d/packages/magit/lisp/magit.el")
