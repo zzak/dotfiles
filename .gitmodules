@@ -52,3 +52,6 @@
 [submodule "emacs/.emacs.d/packages/ggtags"]
 	path = emacs/.emacs.d/packages/ggtags
 	url = https://github.com/leoliu/ggtags
+[submodule "emacs/.emacs.d/packages/projectile"]
+	path = emacs/.emacs.d/packages/projectile
+	url = https://github.com/bbatsov/projectile
