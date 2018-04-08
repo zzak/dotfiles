@@ -74,6 +74,7 @@
 
 (defun clj-run-tests (run-last)
   (interactive "P")
+  (monroe-eval-buffer)
   (monroe-send-eval-string
    (format "%s" `(clojure.test/run-tests
                   (quote ,(if run-last
@@ -86,6 +87,7 @@
 
 (defun clj-run-focused-test ()
   (interactive)
+  (monroe-eval-buffer)
   (monroe-send-eval-string
    (format "%s" `(clojure.test/test-var *1))
    (monroe-make-response-handler)))
