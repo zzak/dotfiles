@@ -50,6 +50,14 @@
 (require 'paredit)
 (require 'rainbow-delimiters)
 (require 'ggtags)
+(require 'projectile)
+
+(projectile-mode)
+
+(eval-after-load 'projectile
+  '(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+(eval-after-load 'projectile
+  '(define-key projectile-mode-map (kbd "C-c f") 'projectile-find-file))
 
 (add-to-list 'load-path "~/.emacs.d/packages/magit/lisp")
 (load "~/.emacs.d/packages/magit/lisp/magit.el")
