@@ -7,17 +7,29 @@
 
 (global-linum-mode t)
 (setq linum-format "%4d ")
+(setq column-number-mode t)
 
 (setq make-backup-files nil)
 
 (setq-default word-wrap t)
 
-(setq menu-bar-mode -1)
+(menu-bar-mode -1)
+
+(winner-mode)
 
 (setq-default show-trailing-whitespace t)
 
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
+
+(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2)))
+
+(windmove-default-keybindings 'meta)
+;(global-set-key (kbd "C-c <left>")  'windmove-left)
+;(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "M-<up>")    'windmove-up)
+(global-set-key (kbd "M-<down>")  'windmove-down)
 
 (dolist (l (directory-files "~/.emacs.d/packages" nil "^[^\.]"))
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
@@ -52,6 +64,9 @@
 (require 'ggtags)
 (require 'projectile)
 
+(define-key paredit-mode-map (kbd "M-<up>") nil)
+(define-key paredit-mode-map (kbd "M-<down>") nil)
+
 (projectile-mode)
 
 (eval-after-load 'projectile
@@ -82,12 +97,14 @@
 
 ;; Thanks phil ;)
 (defvar clj-last-test "user")
+(defvar clj-run-test-lib 'clojure.test/run-tests)
+(defvar clj-test-var-lib 'clojure.test/test-var)
 
 (defun clj-run-tests (run-last)
   (interactive "P")
   (monroe-eval-buffer)
   (monroe-send-eval-string
-   (format "%s" `(clojure.test/run-tests
+   (format "%s" `(,clj-run-test-lib
                   (quote ,(if run-last
                               clj-last-test
                             (setq clj-last-test (clojure-find-ns))))))
@@ -100,7 +117,7 @@
   (interactive)
   (monroe-eval-buffer)
   (monroe-send-eval-string
-   (format "%s" `(clojure.test/test-var *1))
+   (format "%s" `(,clj-test-var-lib *1))
    (monroe-make-response-handler)))
 
 (eval-after-load 'clojure-mode
