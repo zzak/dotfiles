@@ -175,7 +175,7 @@ export PATH="${HOME}/.bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export GOROOT="$HOME/.bin/go"
+export GOROOT="$HOME/go"
 export GOPATH="$HOME/work/go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
