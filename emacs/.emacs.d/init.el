@@ -64,6 +64,7 @@
 (require 'ggtags)
 (require 'projectile)
 (require 'tide)
+(require 'web-mode)
 
 (defun setup-tide-mode ()
   (interactive)
@@ -79,7 +80,15 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+;(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+;; enable typescript-tslint checker
+(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (define-key paredit-mode-map (kbd "M-<up>") nil)
 (define-key paredit-mode-map (kbd "M-<down>") nil)

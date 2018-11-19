@@ -67,3 +67,6 @@
 [submodule "emacs/.emacs.d/packages/flycheck"]
 	path = emacs/.emacs.d/packages/flycheck
 	url = https://github.com/flycheck/flycheck
+[submodule "emacs/.emacs.d/packages/web-mode"]
+	path = emacs/.emacs.d/packages/web-mode
+	url = https://github.com/fxbois/web-mode
