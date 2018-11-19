@@ -55,3 +55,15 @@
 [submodule "emacs/.emacs.d/packages/projectile"]
 	path = emacs/.emacs.d/packages/projectile
 	url = https://github.com/bbatsov/projectile
+[submodule "emacs/.emacs.d/packages/tide"]
+	path = emacs/.emacs.d/packages/tide
+	url = https://github.com/ananthakumaran/tide
+[submodule "emacs/.emacs.d/packages/typescript-mode"]
+	path = emacs/.emacs.d/packages/typescript-mode
+	url = https://github.com/ananthakumaran/typescript.el
+[submodule "emacs/.emacs.d/packages/s"]
+	path = emacs/.emacs.d/packages/s
+	url = https://github.com/magnars/s.el
+[submodule "emacs/.emacs.d/packages/flycheck"]
+	path = emacs/.emacs.d/packages/flycheck
+	url = https://github.com/flycheck/flycheck
