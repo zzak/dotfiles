@@ -4,6 +4,7 @@
      (list start end)))
 
 (setq indent-tab-mode nil)
+(setq-default indent-tabs-mode nil)
 
 (global-linum-mode t)
 (setq linum-format "%4d ")
@@ -66,10 +67,18 @@
 (require 'tide)
 (require 'web-mode)
 
+(defun setup-js-mode ()
+  ;(setq tab-width 2)
+  (setq js-indent-level 2))
+
+(add-hook 'js-mode-hook #'setup-js-mode)
+(add-hook 'javascript-mode-hook #'setup-js-mode)
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
+  (setup-js-mode)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
@@ -79,8 +88,6 @@
   (company-mode +1))
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-;(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-hook 'web-mode-hook
