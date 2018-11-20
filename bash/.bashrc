@@ -161,6 +161,14 @@ function genpass() {
   ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
 }
 
+
+### Linuxbrew.sh
+#export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+#export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+#export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+#### Add Linuxbrew to your PATH
+#export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
 ### Add JAVA_HOME
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
@@ -182,6 +190,9 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 export PATH="$HOME/.bin/elixir/bin:$PATH"
 
 export PATH="$PATH:$HOME/.roswell/bin"
+
+### Firefox
+export PATH="$HOME/.firefox:$PATH"
 
 ### Binaries installed by pip
 export PATH="$PATH:$HOME/.local/bin"

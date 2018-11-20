@@ -67,18 +67,18 @@
 (require 'tide)
 (require 'web-mode)
 
-(defun setup-js-mode ()
-  ;(setq tab-width 2)
-  (setq js-indent-level 2))
-
-(add-hook 'js-mode-hook #'setup-js-mode)
-(add-hook 'javascript-mode-hook #'setup-js-mode)
+(setq-default js-indent-level 2
+  web-mode-markup-indent-offset 2
+  web-mode-css-indent-offset 2
+  web-mode-code-indent-offset 2
+  web-mode-style-padding 2
+  web-mode-script-padding 2
+  css-indent-offset 2)
 
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
-  (setup-js-mode)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
