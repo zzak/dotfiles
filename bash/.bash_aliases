@@ -16,6 +16,3 @@ alias emtmp='em `mktemp -d`'
 alias x='xclip -selection clipboard'
 alias repl='lein trampoline repl :headless &'
 alias emupt='ps -p `pidof emacs` -o etime'
-
-# work
-alias ccli='cd ~/work/go/src/github.com/CircleCI-Public/circleci-cli'
