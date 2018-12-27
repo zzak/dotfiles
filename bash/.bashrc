@@ -197,6 +197,16 @@ export PATH="$HOME/.firefox:$PATH"
 ### Binaries installed by pip
 export PATH="$PATH:$HOME/.local/bin"
 
+### gometalinter
+export PATH="$PATH:$HOME/.bin/gometalinter"
+
+### pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 ### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
 eval `gnome-keyring-daemon --start`
 
