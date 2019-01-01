@@ -66,6 +66,9 @@
 (require 'projectile)
 (require 'tide)
 (require 'web-mode)
+(require 'graphql-mode)
+
+(add-to-list 'auto-mode-alist '("\\.graphql\\'" . graphql-mode))
 
 (setq-default js-indent-level 2
   web-mode-markup-indent-offset 2
