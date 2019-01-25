@@ -67,6 +67,7 @@
 (require 'tide)
 (require 'web-mode)
 (require 'graphql-mode)
+(require 'flycheck-pos-tip)
 
 (add-to-list 'auto-mode-alist '("\\.graphql\\'" . graphql-mode))
 
@@ -99,6 +100,9 @@
               (setup-tide-mode))))
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
+
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
 
 (define-key paredit-mode-map (kbd "M-<up>") nil)
 (define-key paredit-mode-map (kbd "M-<down>") nil)

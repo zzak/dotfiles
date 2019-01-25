@@ -73,3 +73,6 @@
 [submodule "emacs/.emacs.d/packages/graphql-mode"]
 	path = emacs/.emacs.d/packages/graphql-mode
 	url = https://github.com/davazp/graphql-mode
+[submodule "emacs/.emacs.d/packages/flycheck-pos-tip"]
+	path = emacs/.emacs.d/packages/flycheck-pos-tip
+	url = https://github.com/flycheck/flycheck-pos-tip
