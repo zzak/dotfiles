@@ -76,3 +76,9 @@
 [submodule "emacs/.emacs.d/packages/flycheck-pos-tip"]
 	path = emacs/.emacs.d/packages/flycheck-pos-tip
 	url = https://github.com/flycheck/flycheck-pos-tip
+[submodule "emacs/.emacs.d/packages/flycheck-popup-tip"]
+	path = emacs/.emacs.d/packages/flycheck-popup-tip
+	url = https://github.com/flycheck/flycheck-popup-tip
+[submodule "emacs/.emacs.d/packages/popup.el"]
+	path = emacs/.emacs.d/packages/popup.el
+	url = https://github.com/auto-complete/popup-el

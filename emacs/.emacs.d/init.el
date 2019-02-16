@@ -68,6 +68,7 @@
 (require 'web-mode)
 (require 'graphql-mode)
 (require 'flycheck-pos-tip)
+(require 'flycheck-popup-tip)
 
 (add-to-list 'auto-mode-alist '("\\.graphql\\'" . graphql-mode))
 
@@ -103,6 +104,14 @@
 
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
+
+(eval-after-load 'flycheck
+  (if (display-graphic-p)
+      (flycheck-pos-tip-mode)
+    (flycheck-popup-tip-mode)))
+
+(setq flycheck-pos-tip-display-errors-tty-function #'flycheck-popup-tip-show-popup)
+(flycheck-pos-tip-mode)
 
 (define-key paredit-mode-map (kbd "M-<up>") nil)
 (define-key paredit-mode-map (kbd "M-<down>") nil)
