@@ -91,3 +91,9 @@
 [submodule "emacs/.emacs.d/packages/f"]
 	path = emacs/.emacs.d/packages/f
 	url = https://github.com/rejeep/f.el
+[submodule "emacs/.emacs.d/packages/flow-minor-mode"]
+	path = emacs/.emacs.d/packages/flow-minor-mode
+	url = https://github.com/an-sh/flow-minor-mode
+[submodule "emacs/.emacs.d/packages/flycheck-flow"]
+	path = emacs/.emacs.d/packages/flycheck-flow
+	url = https://github.com/lbolla/emacs-flycheck-flow

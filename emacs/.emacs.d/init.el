@@ -69,6 +69,7 @@
 (require 'graphql-mode)
 (require 'flycheck-pos-tip)
 (require 'flycheck-popup-tip)
+(require 'flycheck-flow)
 (require 'prettier-js)
 (require 'nvm)
 
@@ -103,6 +104,9 @@
 (add-hook 'js-mode-hook #'web-mode)
 (add-hook 'js-mode-hook #'web-mode)
 
+(add-hook 'web-mode-hook 'flycheck-mode)
+(add-hook 'web-mode-hook 'flow-minor-enable-automatically)
+
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
@@ -115,6 +119,9 @@
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (with-eval-after-load 'flycheck
+  (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
+  (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
+  (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
   (flycheck-pos-tip-mode))
 
 (eval-after-load 'flycheck
