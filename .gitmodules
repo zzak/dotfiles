@@ -82,3 +82,6 @@
 [submodule "emacs/.emacs.d/packages/popup.el"]
 	path = emacs/.emacs.d/packages/popup.el
 	url = https://github.com/auto-complete/popup-el
+[submodule "emacs/.emacs.d/packages/prettier-js"]
+	path = emacs/.emacs.d/packages/prettier-js
+	url = https://github.com/prettier/prettier-emacs

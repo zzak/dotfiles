@@ -69,6 +69,7 @@
 (require 'graphql-mode)
 (require 'flycheck-pos-tip)
 (require 'flycheck-popup-tip)
+(require 'prettier-js)
 
 (add-to-list 'auto-mode-alist '("\\.graphql\\'" . graphql-mode))
 
@@ -94,11 +95,17 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+(add-hook 'tide-mode-hook #'prettier-js-mode)
+
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-hook 'javascript-mode-hook #'web-mode)
 (add-hook 'js-mode-hook #'web-mode)
+(add-hook 'js-mode-hook #'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+
+(add-hook 'web-mode-hook #'prettier-js-mode)
 (add-hook 'web-mode-hook
           (lambda ()
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
