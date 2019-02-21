@@ -95,6 +95,8 @@
   (company-mode +1))
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-hook 'javascript-mode-hook #'web-mode)
+(add-hook 'js-mode-hook #'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-hook 'web-mode-hook
