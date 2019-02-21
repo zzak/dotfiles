@@ -70,6 +70,7 @@
 (require 'flycheck-pos-tip)
 (require 'flycheck-popup-tip)
 (require 'flycheck-flow)
+(require 'flow-minor-mode)
 (require 'prettier-js)
 (require 'nvm)
 
@@ -104,8 +105,10 @@
 (add-hook 'js-mode-hook #'web-mode)
 (add-hook 'js-mode-hook #'web-mode)
 
-(add-hook 'web-mode-hook 'flycheck-mode)
-(add-hook 'web-mode-hook 'flow-minor-enable-automatically)
+(add-hook 'web-mode-hook (lambda ()
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (flow-minor-enable-automatically)))
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
@@ -118,10 +121,29 @@
 ;; enable typescript-tslint checker
 (flycheck-add-mode 'typescript-tslint 'web-mode)
 
+;; enable flow-minor-mode for js files
+(flycheck-add-mode 'javascript-flow 'flow-minor-mode)
+(flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
+(flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
+
+(defun flow/set-flow-executable ()
+  (interactive)
+  (let* ((os (pcase system-type
+               ('darwin "osx")
+               ('gnu/linux "linux64")
+               (_ nil)))
+         (root (locate-dominating-file  buffer-file-name  "node_modules/flow-bin"))
+         (executable (car (file-expand-wildcards
+                           (concat root "node_modules/flow-bin/*" os "*/flow")))))
+    ;; These are not necessary for this package, but a good idea if you use
+    ;; these other packages
+    (setq-local flow-minor-default-binary executable)
+    (setq-local flycheck-javascript-flow-executable executable)))
+
+;; Set this to the mode you use, I use web-mode
+(add-hook 'web-mode-hook #'flow/set-flow-executable t)
+
 (with-eval-after-load 'flycheck
-  (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
-  (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
-  (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
   (flycheck-pos-tip-mode))
 
 (eval-after-load 'flycheck
