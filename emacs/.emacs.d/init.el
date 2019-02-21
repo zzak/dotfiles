@@ -70,6 +70,7 @@
 (require 'flycheck-pos-tip)
 (require 'flycheck-popup-tip)
 (require 'prettier-js)
+(require 'nvm)
 
 (add-to-list 'auto-mode-alist '("\\.graphql\\'" . graphql-mode))
 

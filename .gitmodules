@@ -85,3 +85,9 @@
 [submodule "emacs/.emacs.d/packages/prettier-js"]
 	path = emacs/.emacs.d/packages/prettier-js
 	url = https://github.com/prettier/prettier-emacs
+[submodule "emacs/.emacs.d/packages/nvm.el"]
+	path = emacs/.emacs.d/packages/nvm.el
+	url = https://github.com/rejeep/nvm.el
+[submodule "emacs/.emacs.d/packages/f"]
+	path = emacs/.emacs.d/packages/f
+	url = https://github.com/rejeep/f.el
