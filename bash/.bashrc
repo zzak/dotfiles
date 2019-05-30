@@ -19,6 +19,9 @@ shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=$HISTSIZE
 
+# ignore case sensitivity on auto-complete for bash
+bind 'set completion-ignore-case on'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
