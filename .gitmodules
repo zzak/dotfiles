@@ -97,3 +97,9 @@
 [submodule "emacs/.emacs.d/packages/flycheck-flow"]
 	path = emacs/.emacs.d/packages/flycheck-flow
 	url = https://github.com/lbolla/emacs-flycheck-flow
+[submodule "emacs/.emacs.d/packages/helm"]
+	path = emacs/.emacs.d/packages/helm
+	url = https://github.com/emacs-helm/helm
+[submodule "emacs/.emacs.d/packages/async"]
+	path = emacs/.emacs.d/packages/async
+	url = https://github.com/jwiegley/emacs-async

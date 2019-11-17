@@ -54,6 +54,11 @@
 
 (add-hook 'prog-mode-hook #'ggtags-mode)
 
+(autoload 'dired-async-mode "dired-async.el" nil t)
+(dired-async-mode 1)
+
+(require 'helm)
+(require 'helm-config)
 (require 'elixir-mode)
 (require 'alchemist)
 (require 'rust-mode)
