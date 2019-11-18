@@ -57,6 +57,12 @@
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
+(require 'dired-sidebar)
+(require 'all-the-icons)
+(require 'all-the-icons-dired)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(setq dired-sidebar-theme 'icons)
+
 (require 'helm)
 (require 'helm-config)
 (require 'elixir-mode)
