@@ -85,6 +85,16 @@
 (require 'prettier-js)
 (require 'nvm)
 
+(require 'diff-hl)
+(require 'diff-hl-margin)
+(require 'diff-hl-dired)
+
+(global-diff-hl-mode)
+(diff-hl-dired-mode)
+(diff-hl-margin-mode)
+
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
@@ -190,6 +200,9 @@
 (add-to-list 'load-path "~/.emacs.d/packages/magit/lisp")
 (load "~/.emacs.d/packages/magit/lisp/magit.el")
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(add-hook 'after-save-hook 'magit-after-save-refresh-status t)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
 (setq gofmt-command "goimports")
 (require 'go-mode)

@@ -118,3 +118,6 @@
 [submodule "emacs/.emacs.d/packages/all-the-icons-dired"]
 	path = emacs/.emacs.d/packages/all-the-icons-dired
 	url = https://github.com/jtbm37/all-the-icons-dired
+[submodule "emacs/.emacs.d/packages/diff-hl"]
+	path = emacs/.emacs.d/packages/diff-hl
+	url = https://github.com/dgutov/diff-hl
