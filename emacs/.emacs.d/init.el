@@ -84,6 +84,7 @@
 (require 'flow-minor-mode)
 (require 'prettier-js)
 (require 'nvm)
+(require 'rubocop)
 
 (require 'diff-hl)
 (require 'diff-hl-margin)
@@ -158,6 +159,11 @@
 (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
 (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
 (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)
+
+(add-hook 'ruby-mode-hook
+          '(lambda ()
+             (setq flycheck-checker 'ruby-rubocop)
+             (flycheck-mode 1)))
 
 (defun flow/set-flow-executable ()
   (interactive)

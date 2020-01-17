@@ -121,3 +121,6 @@
 [submodule "emacs/.emacs.d/packages/diff-hl"]
 	path = emacs/.emacs.d/packages/diff-hl
 	url = https://github.com/dgutov/diff-hl
+[submodule "emacs/.emacs.d/packages/rubocop"]
+	path = emacs/.emacs.d/packages/rubocop
+	url = https://github.com/rubocop-hq/rubocop-emacs
