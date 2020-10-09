@@ -124,3 +124,6 @@
 [submodule "emacs/.emacs.d/packages/rubocop"]
 	path = emacs/.emacs.d/packages/rubocop
 	url = https://github.com/rubocop-hq/rubocop-emacs
+[submodule "emacs/.emacs.d/packages/add-node-modules-path"]
+	path = emacs/.emacs.d/packages/add-node-modules-path
+	url = https://github.com/codesuki/add-node-modules-path
