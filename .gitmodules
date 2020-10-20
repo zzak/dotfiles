@@ -127,3 +127,6 @@
 [submodule "emacs/.emacs.d/packages/add-node-modules-path"]
 	path = emacs/.emacs.d/packages/add-node-modules-path
 	url = https://github.com/codesuki/add-node-modules-path
+[submodule "emacs/.emacs.d/packages/org-journal"]
+	path = emacs/.emacs.d/packages/org-journal
+	url = https://github.com/bastibe/org-journal

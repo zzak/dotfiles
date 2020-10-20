@@ -87,6 +87,10 @@
 (require 'nvm)
 (require 'rubocop)
 
+(setq org-journal-dir "~/org/journal/")
+(setq org-journal-date-format "%Y-%m-%d")
+(require 'org-journal)
+
 (require 'diff-hl)
 (require 'diff-hl-margin)
 (require 'diff-hl-dired)
