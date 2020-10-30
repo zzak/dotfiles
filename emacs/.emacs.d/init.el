@@ -87,7 +87,7 @@
 (require 'nvm)
 (require 'rubocop)
 
-(setq org-journal-dir "~/org/journal/")
+(setq org-journal-dir "~/org/log/")
 (setq org-journal-date-format "%Y-%m-%d")
 (require 'org-journal)
 
