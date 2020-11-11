@@ -63,6 +63,9 @@
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 (setq dired-sidebar-theme 'icons)
 
+(require 'gruvbox)
+(load-theme 'gruvbox-dark-hard t)
+
 (require 'helm)
 (require 'helm-config)
 (require 'elixir-mode)

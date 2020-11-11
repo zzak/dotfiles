@@ -130,3 +130,9 @@
 [submodule "emacs/.emacs.d/packages/org-journal"]
 	path = emacs/.emacs.d/packages/org-journal
 	url = https://github.com/bastibe/org-journal
+[submodule "emacs/.emacs.d/packages/gruvbox"]
+	path = emacs/.emacs.d/packages/gruvbox
+	url = https://github.com/greduan/emacs-theme-gruvbox
+[submodule "emacs/.emacs.d/packages/autothemer"]
+	path = emacs/.emacs.d/packages/autothemer
+	url = https://github.com/jasonm23/autothemer
