@@ -164,6 +164,16 @@ function genpass() {
   ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
 }
 
+# homebrew completion stuff
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+fi
+if [ -f `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash ]; then
+  . `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash
+fi
 
 ### Linuxbrew.sh
 #export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
@@ -211,9 +221,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 ### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
-eval `gnome-keyring-daemon --start`
+#eval `gnome-keyring-daemon --start`
 
-setxkbmap -option ctrl:nocaps
+#setxkbmap -option ctrl:nocaps
 
 ### nvm
 export NVM_DIR="$HOME/.nvm"
@@ -239,3 +249,7 @@ if [ -f '/home/zzak/src/google-cloud-sdk/path.bash.inc' ]; then . '/home/zzak/sr
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/zzak/src/google-cloud-sdk/completion.bash.inc' ]; then . '/home/zzak/src/google-cloud-sdk/completion.bash.inc'; fi
+
+export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
