@@ -2,7 +2,7 @@ syntax on
 
 let mapleader = ","
 set t_Co=256
-set background=light
+set background=dark
 set nocompatible
 set backspace=indent,eol,start
 set history=1000
