@@ -164,15 +164,17 @@ function genpass() {
   ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
 }
 
-# homebrew completion stuff
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
-  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-fi
-if [ -f `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash ]; then
-  . `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash
+if [ -x brew ]; then
+  # homebrew completion stuff
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+  if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+    . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+  fi
+  if [ -f `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash ]; then
+    . `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash
+  fi
 fi
 
 ### Linuxbrew.sh
@@ -251,5 +253,8 @@ if [ -f '/home/zzak/src/google-cloud-sdk/path.bash.inc' ]; then . '/home/zzak/sr
 if [ -f '/home/zzak/src/google-cloud-sdk/completion.bash.inc' ]; then . '/home/zzak/src/google-cloud-sdk/completion.bash.inc'; fi
 
 export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
+  source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+  source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+fi
