@@ -3,3 +3,4 @@
 /.idea
 *.iml
 .dir-locals.el
+.DS_Store
