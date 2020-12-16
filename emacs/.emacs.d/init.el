@@ -23,6 +23,10 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
+;; make emacs work in macos
+(setq mac-command-modifier 'super
+      mac-option-modifier 'meta)
+
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2)))
 
