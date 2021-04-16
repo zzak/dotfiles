@@ -82,6 +82,8 @@
 (require 'rainbow-delimiters)
 (require 'ggtags)
 (require 'projectile)
+(require 'projectile-rails)
+(require 'inf-ruby)
 (require 'tide)
 (require 'web-mode)
 (require 'graphql-mode)
@@ -114,6 +116,9 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (add-to-list 'auto-mode-alist '("\\.graphql\\'" . graphql-mode))
+
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;(add-to-list 'auto-mode-alist '("\\.erb\\'" . ruby-mode))
 
 (setq-default js-indent-level 2
   javascript-indent-level 2
@@ -212,6 +217,7 @@
 (define-key paredit-mode-map (kbd "M-<down>") nil)
 
 (projectile-mode)
+(projectile-rails-global-mode)
 
 (eval-after-load 'projectile
   '(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))

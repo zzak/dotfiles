@@ -136,3 +136,15 @@
 [submodule "emacs/.emacs.d/packages/autothemer"]
 	path = emacs/.emacs.d/packages/autothemer
 	url = https://github.com/jasonm23/autothemer
+[submodule "emacs/.emacs.d/packages/projectile-rails"]
+	path = emacs/.emacs.d/packages/projectile-rails
+	url = https://github.com/asok/projectile-rails
+[submodule "emacs/.emacs.d/packages/inf-ruby"]
+	path = emacs/.emacs.d/packages/inf-ruby
+	url = https://github.com/nonsequitur/inf-ruby
+[submodule "emacs/.emacs.d/packages/jump"]
+	path = emacs/.emacs.d/packages/jump
+	url = https://github.com/eschulte/jump.el
+[submodule "emacs/.emacs.d/packages/rake"]
+	path = emacs/.emacs.d/packages/rake
+	url = https://github.com/asok/rake.el
