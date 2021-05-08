@@ -95,6 +95,7 @@
 (require 'prettier-js)
 (require 'nvm)
 (require 'rubocop)
+(require 'coffee-mode)
 
 (setq org-journal-dir "~/org/log/")
 (setq org-journal-date-format "%Y-%m-%d")
@@ -119,6 +120,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 ;(add-to-list 'auto-mode-alist '("\\.erb\\'" . ruby-mode))
+
+(add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
 
 (setq-default js-indent-level 2
   javascript-indent-level 2

@@ -164,7 +164,7 @@ function genpass() {
   ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
 }
 
-if [ -x brew ]; then
+if command -v brew; then
   # homebrew completion stuff
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion

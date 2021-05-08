@@ -148,3 +148,6 @@
 [submodule "emacs/.emacs.d/packages/rake"]
 	path = emacs/.emacs.d/packages/rake
 	url = https://github.com/asok/rake.el
+[submodule "emacs/.emacs.d/packages/coffee-mode"]
+	path = emacs/.emacs.d/packages/coffee-mode
+	url = https://github.com/defunkt/coffee-mode
