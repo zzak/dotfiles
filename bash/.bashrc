@@ -198,9 +198,9 @@ export PATH="${HOME}/.bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export GOROOT="$HOME/go"
-export GOPATH="$HOME/work/go"
-export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+#export GOROOT="$HOME/go"
+#export GOPATH="$HOME/go"
+#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 export PATH="$HOME/.bin/elixir/bin:$PATH"
 
@@ -254,7 +254,7 @@ if [ -f '/home/zzak/src/google-cloud-sdk/completion.bash.inc' ]; then . '/home/z
 
 export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
 
-if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
+#if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
   source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
   source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
-fi
+#fi
