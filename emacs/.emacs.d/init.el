@@ -289,3 +289,10 @@
 
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "C-c t") 'clj-run-focused-test))
+
+(defun pbcopy ()
+  (interactive)
+  (call-process-region (point) (mark) "pbcopy")
+  (setq deactivate-mark t))
+
+(global-set-key (kbd "C-c c") 'pbcopy)
