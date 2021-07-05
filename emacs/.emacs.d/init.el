@@ -108,6 +108,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.orgj\\'" . org-journal-mode))
 
+(setq org-export-backends '(ascii html icalendar md))
+
 (require 'diff-hl)
 (require 'diff-hl-margin)
 (require 'diff-hl-dired)
