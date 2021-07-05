@@ -1,3 +1,5 @@
+(setq gc-cons-threshold 100000000)
+
 ;; Mitigate Bug#28350 (security) in Emacs 25.2 and earlier.
 (eval-after-load "enriched"
   '(defun enriched-decode-display-prop (start end &optional param)
