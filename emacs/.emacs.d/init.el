@@ -103,7 +103,7 @@
 
 (setq org-journal-dir "~/org/log/")
 (setq org-journal-date-format "%Y-%m-%d")
-(setq org-journal-file-type "weekly")
+(setq org-journal-file-type 'weekly)
 (setq org-journal-file-format "%Y-%m-%d.orgj")
 
 (require 'org-journal)
