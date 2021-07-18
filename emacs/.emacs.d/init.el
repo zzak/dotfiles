@@ -296,3 +296,47 @@
   (setq deactivate-mark t))
 
 (global-set-key (kbd "C-c c") 'pbcopy)
+
+(defun gh-url-to-api (uri)
+  (string-match "github.com/\\([[:word:]]+\\)/\\([[:word:]]+\\)/\\(issues\\|pull\\)/\\([[:digit:]]+\\)" uri)
+  (let ((org (match-string 1 uri))
+        (project (match-string 2 uri))
+        (task (match-string 3 uri))
+        (number (match-string 4 uri)))
+    (format "https://api.github.com/repos/%s/%s/issues/%s"
+            org project number)))
+
+(defun gh-insert-metadata (result buf)
+  (with-current-buffer buf
+    (let ((title (plist-get result 'title))
+          (number (plist-get result 'number))
+          (html-url (plist-get result 'html_url))
+          (labels (plist-get result 'labels)))
+      (insert (format "%s " title))
+      (insert (format "[[%s][#%s]] " html-url number))
+      (insert (format ":%s: " number))
+      (mapcar (lambda (arg) (insert (format ":%s: " (plist-get arg 'name)))) labels)
+      (insert "\n"))))
+
+(defun gh-fetch-cb (events buf)
+  (goto-char url-http-end-of-headers)
+  (let ((json-object-type 'plist)
+        (json-key-type 'symbol)
+        (json-array-type 'vector))
+    (let ((result (json-read)))
+      (gh-insert-metadata result buf))))
+
+(defun gh-fetch-and-insert (api)
+  (let ((url-request-extra-headers
+         '(("Accept" . "application/vnd.github.v3+json"))))
+    (url-retrieve
+     api
+     'gh-fetch-cb
+     `(,(current-buffer)))))
+
+(defun org-gh-metadata (uri)
+  (interactive "sGitHub URL: ")
+  (let ((api (gh-url-to-api uri)))
+    (gh-fetch-and-insert api)))
+
+
