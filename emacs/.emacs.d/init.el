@@ -58,8 +58,6 @@
 (autoload 'rainbow-delimiters-mode "rainbow-delimiters" "Emacs rainbow delimiters mode" t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-(add-hook 'prog-mode-hook #'ggtags-mode)
-
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
@@ -82,7 +80,6 @@
 (require 'monroe)
 (require 'paredit)
 (require 'rainbow-delimiters)
-(require 'ggtags)
 (require 'projectile)
 (require 'projectile-rails)
 (require 'inf-ruby)
@@ -238,12 +235,21 @@
 (eval-after-load 'projectile
   '(define-key projectile-mode-map (kbd "C-c f") 'projectile-find-file))
 
+(add-to-list 'load-path "~/.emacs.d/packages/transient/lisp")
+(load "~/.emacs.d/packages/transient/lisp/transient.el")
+
 (add-to-list 'load-path "~/.emacs.d/packages/magit/lisp")
 (load "~/.emacs.d/packages/magit/lisp/magit.el")
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
+(add-to-list 'load-path "~/.emacs.d/packages/forge/lisp")
+(load "~/.emacs.d/packages/forge/lisp/forge.el")
+
+(with-eval-after-load 'magit
+  (require 'forge))
 
 (setq gofmt-command "goimports")
 (require 'go-mode)

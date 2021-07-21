@@ -49,9 +49,6 @@
 [submodule "emacs/.emacs.d/packages/rainbow-delimiters"]
 	path = emacs/.emacs.d/packages/rainbow-delimiters
 	url = https://github.com/Fanael/rainbow-delimiters
-[submodule "emacs/.emacs.d/packages/ggtags"]
-	path = emacs/.emacs.d/packages/ggtags
-	url = https://github.com/leoliu/ggtags
 [submodule "emacs/.emacs.d/packages/projectile"]
 	path = emacs/.emacs.d/packages/projectile
 	url = https://github.com/bbatsov/projectile
@@ -151,3 +148,21 @@
 [submodule "emacs/.emacs.d/packages/coffee-mode"]
 	path = emacs/.emacs.d/packages/coffee-mode
 	url = https://github.com/defunkt/coffee-mode
+[submodule "emacs/.emacs.d/packages/forge"]
+	path = emacs/.emacs.d/packages/forge
+	url = https://github.com/magit/forge
+[submodule "emacs/.emacs.d/packages/closql"]
+	path = emacs/.emacs.d/packages/closql
+	url = https://github.com/emacscollective/closql
+[submodule "emacs/.emacs.d/packages/emacsql-sqlite"]
+	path = emacs/.emacs.d/packages/emacsql-sqlite
+	url = https://github.com/skeeto/emacsql
+[submodule "emacs/.emacs.d/packages/transient"]
+	path = emacs/.emacs.d/packages/transient
+	url = https://github.com/magit/transient
+[submodule "emacs/.emacs.d/packages/yaml"]
+	path = emacs/.emacs.d/packages/yaml
+	url = https://github.com/zkry/yaml.el
+[submodule "emacs/.emacs.d/packages/treepy"]
+	path = emacs/.emacs.d/packages/treepy
+	url = https://github.com/volrath/treepy.el
