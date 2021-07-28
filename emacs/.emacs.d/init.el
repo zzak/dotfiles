@@ -1,4 +1,6 @@
 (setq gc-cons-threshold 100000000)
+(setq max-lisp-eval-depth 100000)
+(setq max-specpdl-size 100000)
 
 ;; Mitigate Bug#28350 (security) in Emacs 25.2 and earlier.
 (eval-after-load "enriched"
@@ -97,6 +99,11 @@
 (require 'coffee-mode)
 
 (put 'org-journal-dir 'safe-local-variable #'stringp)
+(put 'browse-url-browser-function 'safe-local-variable #'symbolp)
+(put 'browse-url-generic-program 'safe-local-variable #'stringp)
+
+;(setq browse-url-browser-function 'browse-url-generic)
+;(setq browse-url-generic-program "chrome")
 
 (setq org-journal-dir "~/org/log/")
 (setq org-journal-date-format "%Y-%m-%d")
