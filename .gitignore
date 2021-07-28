@@ -1,3 +1,5 @@
 *projectile-bookmarks.eld
 /emacs/.emacs.d/eshell
 /emacs/.emacs.d/url
+/emacs/.emacs.d/transient
+/emacs/.emacs.d/forge-database.sqlite
