@@ -293,6 +293,14 @@
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "C-c C-t") 'clj-run-tests))
 
+(defun setup-clojure-mode ()
+  (interactive)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (require 'flycheck-clj-kondo))
+
+(add-hook 'clojure-mode-hook #'setup-clojure-mode)
+
 (defun clj-run-focused-test ()
   (interactive)
   (monroe-eval-buffer)

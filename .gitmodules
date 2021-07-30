@@ -166,3 +166,6 @@
 [submodule "emacs/.emacs.d/packages/treepy"]
 	path = emacs/.emacs.d/packages/treepy
 	url = https://github.com/volrath/treepy.el
+[submodule "emacs/.emacs.d/packages/flycheck-clj-kondo"]
+	path = emacs/.emacs.d/packages/flycheck-clj-kondo
+	url = https://github.com/borkdude/flycheck-clj-kondo
