@@ -169,3 +169,24 @@
 [submodule "emacs/.emacs.d/packages/flycheck-clj-kondo"]
 	path = emacs/.emacs.d/packages/flycheck-clj-kondo
 	url = https://github.com/borkdude/flycheck-clj-kondo
+[submodule "emacs/.emacs.d/packages/lsp-mode"]
+	path = emacs/.emacs.d/packages/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode
+[submodule "emacs/.emacs.d/packages/lsp-treemacs"]
+	path = emacs/.emacs.d/packages/lsp-treemacs
+	url = https://github.com/emacs-lsp/lsp-treemacs
+[submodule "emacs/.emacs.d/packages/ht.el"]
+	path = emacs/.emacs.d/packages/ht.el
+	url = https://github.com/Wilfred/ht.el
+[submodule "emacs/.emacs.d/packages/hydra"]
+	path = emacs/.emacs.d/packages/hydra
+	url = https://github.com/abo-abo/hydra
+[submodule "emacs/.emacs.d/packages/spinner.el"]
+	path = emacs/.emacs.d/packages/spinner.el
+	url = https://github.com/Malabarba/spinner.el
+[submodule "emacs/.emacs.d/packages/treemacs"]
+	path = emacs/.emacs.d/packages/treemacs
+	url = https://github.com/Alexander-Miller/treemacs
+[submodule "emacs/.emacs.d/packages/pfuture"]
+	path = emacs/.emacs.d/packages/pfuture
+	url = https://github.com/Alexander-Miller/pfuture

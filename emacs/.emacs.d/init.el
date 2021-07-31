@@ -1,6 +1,11 @@
-(setq gc-cons-threshold 100000000)
-(setq max-lisp-eval-depth 100000)
-(setq max-specpdl-size 100000)
+(setq gc-cons-threshold 100000000
+      max-lisp-eval-depth 100000
+      max-specpdl-size 100000
+      treemacs-space-between-root-nodes nil
+      company-minimum-prefix-length 1
+      lsp-signature-auto-activate nil
+      lsp-modeline-diagnostics-scope :workspace
+      lsp-modeline-diagnostics-enable 1)
 
 ;; Mitigate Bug#28350 (security) in Emacs 25.2 and earlier.
 (eval-after-load "enriched"
@@ -293,11 +298,18 @@
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "C-c C-t") 'clj-run-tests))
 
+(add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
+(add-to-list 'load-path "~/.emacs.d/packages/treemacs/src/elisp")
+
 (defun setup-clojure-mode ()
   (interactive)
+  (require 'lsp-mode)
+  (require 'lsp-treemacs)
+  (lsp)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (require 'flycheck-clj-kondo))
+  (require 'flycheck-clj-kondo)
+  (company-mode +1))
 
 (add-hook 'clojure-mode-hook #'setup-clojure-mode)
 
