@@ -190,3 +190,15 @@
 [submodule "emacs/.emacs.d/packages/pfuture"]
 	path = emacs/.emacs.d/packages/pfuture
 	url = https://github.com/Alexander-Miller/pfuture
+[submodule "emacs/.emacs.d/packages/helm-lsp"]
+	path = emacs/.emacs.d/packages/helm-lsp
+	url = https://github.com/emacs-lsp/helm-lsp
+[submodule "emacs/.emacs.d/packages/lsp-ui"]
+	path = emacs/.emacs.d/packages/lsp-ui
+	url = https://github.com/emacs-lsp/lsp-ui
+[submodule "emacs/.emacs.d/packages/yasnippet"]
+	path = emacs/.emacs.d/packages/yasnippet
+	url = https://github.com/joaotavora/yasnippet
+[submodule "emacs/.emacs.d/packages/helm-projectile"]
+	path = emacs/.emacs.d/packages/helm-projectile
+	url = https://github.com/bbatsov/helm-projectile

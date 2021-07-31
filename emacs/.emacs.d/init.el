@@ -1,11 +1,13 @@
 (setq gc-cons-threshold 100000000
       max-lisp-eval-depth 100000
       max-specpdl-size 100000
+      read-process-output-max 100000
       treemacs-space-between-root-nodes nil
       company-minimum-prefix-length 1
+      lsp-lens-enable nil
       lsp-signature-auto-activate nil
-      lsp-modeline-diagnostics-scope :workspace
-      lsp-modeline-diagnostics-enable 1)
+      lsp-modeline-code-actions-enable nil
+      lsp-modeline-diagnostics-enable nil)
 
 ;; Mitigate Bug#28350 (security) in Emacs 25.2 and earlier.
 (eval-after-load "enriched"
@@ -49,6 +51,9 @@
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
   (autoload (intern l) (concat "~/.emacs.d/packages/" l ".el")))
 
+(add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
+(add-to-list 'load-path "~/.emacs.d/packages/treemacs/src/elisp")
+
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -77,8 +82,13 @@
 (require 'gruvbox)
 (load-theme 'gruvbox-dark-hard t)
 
+(require 'lsp-mode)
+(require 'lsp-treemacs)
+(require 'lsp-ui)
 (require 'helm)
 (require 'helm-config)
+(require 'helm-lsp)
+(require 'helm-projectile)
 (require 'elixir-mode)
 (require 'alchemist)
 (require 'rust-mode)
@@ -96,6 +106,7 @@
 (require 'flycheck-pos-tip)
 (require 'flycheck-popup-tip)
 (require 'flycheck-flow)
+(require 'flycheck-clj-kondo)
 (require 'flow-minor-mode)
 (require 'add-node-modules-path)
 (require 'prettier-js)
@@ -159,11 +170,7 @@
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
+  (tide-hl-identifier-mode +1))
 
 (add-hook 'tide-mode-hook #'prettier-js-mode)
 
@@ -241,6 +248,8 @@
 
 (projectile-mode)
 (projectile-rails-global-mode)
+(helm-projectile-on)
+(company-mode +1)
 
 (eval-after-load 'projectile
   '(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
@@ -298,18 +307,13 @@
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "C-c C-t") 'clj-run-tests))
 
-(add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
-(add-to-list 'load-path "~/.emacs.d/packages/treemacs/src/elisp")
+(define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 
 (defun setup-clojure-mode ()
   (interactive)
-  (require 'lsp-mode)
-  (require 'lsp-treemacs)
   (lsp)
   (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (require 'flycheck-clj-kondo)
-  (company-mode +1))
+  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (add-hook 'clojure-mode-hook #'setup-clojure-mode)
 
