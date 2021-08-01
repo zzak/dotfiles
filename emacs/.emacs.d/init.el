@@ -7,7 +7,8 @@
       lsp-lens-enable nil
       lsp-signature-auto-activate nil
       lsp-modeline-code-actions-enable nil
-      lsp-modeline-diagnostics-enable nil)
+      lsp-modeline-diagnostics-enable nil
+      lsp-file-watch-threshold 10000)
 
 ;; Mitigate Bug#28350 (security) in Emacs 25.2 and earlier.
 (eval-after-load "enriched"
