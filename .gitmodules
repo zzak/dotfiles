@@ -22,9 +22,6 @@
 [submodule "emacs/.emacs.d/packages/yaml-mode"]
 	path = emacs/.emacs.d/packages/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode
-[submodule "emacs/.emacs.d/packages/monroe"]
-	path = emacs/.emacs.d/packages/monroe
-	url = https://github.com/sanel/monroe
 [submodule "emacs/.emacs.d/packages/clojure-mode"]
 	path = emacs/.emacs.d/packages/clojure-mode
 	url = https://github.com/clojure-emacs/clojure-mode.git
@@ -202,3 +199,18 @@
 [submodule "emacs/.emacs.d/packages/helm-projectile"]
 	path = emacs/.emacs.d/packages/helm-projectile
 	url = https://github.com/bbatsov/helm-projectile
+[submodule "emacs/.emacs.d/packages/cider"]
+	path = emacs/.emacs.d/packages/cider
+	url = https://github.com/clojure-emacs/cider
+[submodule "emacs/.emacs.d/packages/parseedn"]
+	path = emacs/.emacs.d/packages/parseedn
+	url = https://github.com/clojure-emacs/parseedn
+[submodule "emacs/.emacs.d/packages/a"]
+	path = emacs/.emacs.d/packages/a
+	url = https://github.com/plexus/a.el
+[submodule "emacs/.emacs.d/packages/parseclj"]
+	path = emacs/.emacs.d/packages/parseclj
+	url = https://github.com/clojure-emacs/parseclj
+[submodule "emacs/.emacs.d/packages/sesman"]
+	path = emacs/.emacs.d/packages/sesman
+	url = https://github.com/vspinu/sesman

@@ -58,7 +58,7 @@
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'clojure-mode-hook          #'clojure-enable-monroe)
+(add-hook 'clojure-mode-hook          #'cider-mode)
 (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
@@ -95,7 +95,7 @@
 (require 'rust-mode)
 (require 'yaml-mode)
 (require 'clojure-mode)
-(require 'monroe)
+(require 'cider)
 (require 'paredit)
 (require 'rainbow-delimiters)
 (require 'projectile)
@@ -290,24 +290,6 @@
 (defun timestamp () (interactive)
        (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
 
-;; Thanks phil ;)
-(defvar clj-last-test "user")
-(defvar clj-run-test-lib 'clojure.test/run-tests)
-(defvar clj-test-var-lib 'clojure.test/test-var)
-
-(defun clj-run-tests (run-last)
-  (interactive "P")
-  (monroe-eval-buffer)
-  (monroe-send-eval-string
-   (format "%s" `(,clj-run-test-lib
-                  (quote ,(if run-last
-                              clj-last-test
-                            (setq clj-last-test (clojure-find-ns))))))
-   (monroe-make-response-handler)))
-
-(eval-after-load 'clojure-mode
-  '(define-key clojure-mode-map (kbd "C-c C-t") 'clj-run-tests))
-
 (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 
 (defun setup-clojure-mode ()
@@ -317,16 +299,6 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (add-hook 'clojure-mode-hook #'setup-clojure-mode)
-
-(defun clj-run-focused-test ()
-  (interactive)
-  (monroe-eval-buffer)
-  (monroe-send-eval-string
-   (format "%s" `(,clj-test-var-lib *1))
-   (monroe-make-response-handler)))
-
-(eval-after-load 'clojure-mode
-  '(define-key clojure-mode-map (kbd "C-c t") 'clj-run-focused-test))
 
 (defun pbcopy ()
   (interactive)
