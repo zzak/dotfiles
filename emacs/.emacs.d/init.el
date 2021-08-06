@@ -99,6 +99,7 @@
 (require 'yaml-mode)
 (require 'clojure-mode)
 (require 'cider)
+(require 'helm-cider)
 (require 'paredit)
 (require 'rainbow-delimiters)
 (require 'projectile)
@@ -302,6 +303,12 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (add-hook 'clojure-mode-hook #'setup-clojure-mode)
+
+(defun setup-cider-mode ()
+  (interactive)
+  (helm-cider-mode 1))
+
+(add-hook 'cider-mode-hook #'setup-cider-mode)
 
 (defun pbcopy ()
   (interactive)

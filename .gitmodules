@@ -214,3 +214,6 @@
 [submodule "emacs/.emacs.d/packages/sesman"]
 	path = emacs/.emacs.d/packages/sesman
 	url = https://github.com/vspinu/sesman
+[submodule "emacs/.emacs.d/packages/helm-cider"]
+	path = emacs/.emacs.d/packages/helm-cider
+	url = https://github.com/clojure-emacs/helm-cider
