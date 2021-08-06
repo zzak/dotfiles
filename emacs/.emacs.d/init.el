@@ -103,6 +103,7 @@
 (require 'clojure-mode)
 (require 'cider)
 (require 'helm-cider)
+(require 'kaocha-runner)
 (require 'paredit)
 (require 'rainbow-delimiters)
 (require 'projectile)

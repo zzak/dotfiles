@@ -220,3 +220,6 @@
 [submodule "emacs/.emacs.d/packages/squiggly-clojure"]
 	path = emacs/.emacs.d/packages/squiggly-clojure
 	url = https://github.com/clojure-emacs/squiggly-clojure
+[submodule "emacs/.emacs.d/packages/kaocha-runner"]
+	path = emacs/.emacs.d/packages/kaocha-runner
+	url = https://github.com/magnars/kaocha-runner.el
