@@ -55,6 +55,9 @@
 (add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
 (add-to-list 'load-path "~/.emacs.d/packages/treemacs/src/elisp")
 
+(add-to-list 'load-path "~/.emacs.d/packages/squiggly-clojure/elisp/flycheck-clojure")
+(add-to-list 'load-path "~/.emacs.d/packages/squiggly-clojure/elisp/typed-clojure")
+
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -112,6 +115,7 @@
 (require 'flycheck-popup-tip)
 (require 'flycheck-flow)
 (require 'flycheck-clj-kondo)
+(require 'flycheck-clojure)
 (require 'flow-minor-mode)
 (require 'add-node-modules-path)
 (require 'prettier-js)
@@ -245,7 +249,8 @@
       (flycheck-pos-tip-mode)
     (flycheck-popup-tip-mode)))
 
-(setq flycheck-pos-tip-display-errors-tty-function #'flycheck-popup-tip-show-popup)
+(setq flycheck-pos-tip-display-errors-tty-function #'flycheck-popup-tip-show-popup
+      flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
 (flycheck-pos-tip-mode)
 
 (define-key paredit-mode-map (kbd "M-<up>") nil)
@@ -306,7 +311,8 @@
 
 (defun setup-cider-mode ()
   (interactive)
-  (helm-cider-mode 1))
+  (helm-cider-mode 1)
+  (flycheck-clojure-setup))
 
 (add-hook 'cider-mode-hook #'setup-cider-mode)
 
