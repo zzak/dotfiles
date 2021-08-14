@@ -117,6 +117,8 @@
 (require 'flycheck-flow)
 (require 'flycheck-clj-kondo)
 (require 'flycheck-clojure)
+(require 'flycheck-swift)
+(require 'swift-mode)
 (require 'flow-minor-mode)
 (require 'add-node-modules-path)
 (require 'prettier-js)
@@ -316,6 +318,22 @@
   (flycheck-clojure-setup))
 
 (add-hook 'cider-mode-hook #'setup-cider-mode)
+
+(add-to-list 'auto-mode-alist '("\\.swift\\'" . swift-mode))
+
+(eval-after-load 'lsp-mode
+  (progn
+    (require 'lsp-sourcekit)
+    (setq lsp-sourcekit-executable "/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp")))
+
+(defun setup-swift-mode ()
+  (interactive)
+  (lsp)
+  (flycheck-mode +1)
+  (flycheck-swift-setup)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled)))
+
+(add-hook 'swift-mode-hook #'setup-swift-mode)
 
 (defun pbcopy ()
   (interactive)

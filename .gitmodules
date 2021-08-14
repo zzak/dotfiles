@@ -223,3 +223,12 @@
 [submodule "emacs/.emacs.d/packages/kaocha-runner"]
 	path = emacs/.emacs.d/packages/kaocha-runner
 	url = https://github.com/magnars/kaocha-runner.el
+[submodule "emacs/.emacs.d/packages/lsp-sourcekit"]
+	path = emacs/.emacs.d/packages/lsp-sourcekit
+	url = https://github.com/emacs-lsp/lsp-sourcekit
+[submodule "emacs/.emacs.d/packages/flycheck-swift"]
+	path = emacs/.emacs.d/packages/flycheck-swift
+	url = https://github.com/swift-emacs/flycheck-swift
+[submodule "emacs/.emacs.d/packages/swift-mode"]
+	path = emacs/.emacs.d/packages/swift-mode
+	url = https://github.com/swift-emacs/swift-mode
