@@ -27,6 +27,8 @@
 (setq-default word-wrap t)
 
 (menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 
 (winner-mode)
 
@@ -35,9 +37,21 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
+(setq default-frame-alist '((font . "Source Code Pro-14")))
+
 ;; make emacs work in macos
-(setq mac-command-modifier 'super
-      mac-option-modifier 'meta)
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'alt)
+
+;; This works for copying, but not pasting for some reason
+(setq select-enable-clipboard t)
+
+;; Whatever... it's easy enough to implement that part ourselves
+(setq interprogram-paste-function
+      (lambda ()
+        (shell-command-to-string "pbpaste")))
 
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2)))
