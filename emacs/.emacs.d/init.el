@@ -56,10 +56,10 @@
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2)))
 
 (windmove-default-keybindings 'meta)
-;(global-set-key (kbd "C-c <left>")  'windmove-left)
-;(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "M-<up>")    'windmove-up)
-(global-set-key (kbd "M-<down>")  'windmove-down)
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
 
 (dolist (l (directory-files "~/.emacs.d/packages" nil "^[^\.]"))
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
