@@ -27,8 +27,10 @@
 (setq-default word-wrap t)
 
 (menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
+
+(when (memq window-system '(mac ns x))
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1))
 
 (winner-mode)
 
@@ -66,7 +68,15 @@
   (add-to-list 'load-path (concat "~/.emacs.d/packages/" l))
   (autoload (intern l) (concat "~/.emacs.d/packages/" l ".el")))
 
-(add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
+(require 'exec-path-from-shell)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+(when (daemonp)
+  (exec-path-from-shell-initialize))
+
+;(add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
 (add-to-list 'load-path "~/.emacs.d/packages/treemacs/src/elisp")
 
 (add-to-list 'load-path "~/.emacs.d/packages/squiggly-clojure/elisp/flycheck-clojure")

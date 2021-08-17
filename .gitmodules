@@ -232,3 +232,6 @@
 [submodule "emacs/.emacs.d/packages/swift-mode"]
 	path = emacs/.emacs.d/packages/swift-mode
 	url = https://github.com/swift-emacs/swift-mode
+[submodule "emacs/.emacs.d/packages/exec-path-from-shell"]
+	path = emacs/.emacs.d/packages/exec-path-from-shell
+	url = https://github.com/purcell/exec-path-from-shell
