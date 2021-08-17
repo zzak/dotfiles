@@ -12,7 +12,7 @@
 [color "diff"]
   whitespace = red reverse
 [core]
-  editor = emacsclient
+  editor = vim
   excludesfile = ~/.gitignore
 [alias]
   st = status
@@ -34,3 +34,8 @@
 	rebase = true
 [gitlab]
 	user = zzak
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
