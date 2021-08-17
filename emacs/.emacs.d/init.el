@@ -73,7 +73,6 @@
 (when (daemonp)
   (exec-path-from-shell-initialize))
 
-;(add-to-list 'load-path "~/.emacs.d/packages/lsp-mode/clients")
 (add-to-list 'load-path "~/.emacs.d/packages/treemacs/src/elisp")
 
 (add-to-list 'load-path "~/.emacs.d/packages/squiggly-clojure/elisp/flycheck-clojure")
