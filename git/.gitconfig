@@ -12,7 +12,7 @@
 [color "diff"]
   whitespace = red reverse
 [core]
-  editor = vim
+  editor = "emacsclient -cn"
   excludesfile = ~/.gitignore
 [alias]
   st = status
