@@ -296,6 +296,9 @@
 (load "~/.emacs.d/packages/magit/lisp/magit.el")
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(when (memq window-system '(mac ns x))
+  (setq initial-buffer-choice 'magit-status))
+
 (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
