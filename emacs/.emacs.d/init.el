@@ -25,6 +25,7 @@
 
 (menu-bar-mode -1)
 
+;; TODO: eval these after starting emacsclient
 (when (memq window-system '(mac ns x))
   (toggle-scroll-bar -1)
   (tool-bar-mode -1))
