@@ -166,9 +166,6 @@
 [submodule "emacs/.emacs.d/packages/flycheck-clj-kondo"]
 	path = emacs/.emacs.d/packages/flycheck-clj-kondo
 	url = https://github.com/borkdude/flycheck-clj-kondo
-[submodule "emacs/.emacs.d/packages/lsp-mode"]
-	path = emacs/.emacs.d/packages/lsp-mode
-	url = https://github.com/emacs-lsp/lsp-mode
 [submodule "emacs/.emacs.d/packages/lsp-treemacs"]
 	path = emacs/.emacs.d/packages/lsp-treemacs
 	url = https://github.com/emacs-lsp/lsp-treemacs
