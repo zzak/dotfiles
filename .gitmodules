@@ -232,3 +232,6 @@
 [submodule "emacs/.emacs.d/packages/exec-path-from-shell"]
 	path = emacs/.emacs.d/packages/exec-path-from-shell
 	url = https://github.com/purcell/exec-path-from-shell
+[submodule "emacs/.emacs.d/packages/lsp-mode"]
+	path = emacs/.emacs.d/packages/lsp-mode
+	url = https://github.com/emacs-lsp/lsp-mode
