@@ -1,5 +1,3 @@
-{:repl {:plugins [[cider/cider-nrepl "0.25.2"]]}}
-
 {:user {:pedantic? :ranges
         :dependencies [[clj-stacktrace "0.2.8"]]
         :injections [(let [orig (ns-resolve (doto 'clojure.stacktrace require)
