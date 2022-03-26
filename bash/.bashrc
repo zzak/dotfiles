@@ -246,6 +246,9 @@ export PROMPT_COMMAND=enter_directory
 ### Add /usr/sbin to $PATH
 export PATH="$PATH:/usr/sbin"
 
+### Add krew to PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/zzak/src/google-cloud-sdk/path.bash.inc' ]; then . '/home/zzak/src/google-cloud-sdk/path.bash.inc'; fi
 
