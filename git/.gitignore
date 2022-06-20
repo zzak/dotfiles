@@ -4,3 +4,8 @@
 *.iml
 .dir-locals.el
 .DS_Store
+/.calva
+/.clj-kondo
+/.lsp
+tempplan*
+.calva
