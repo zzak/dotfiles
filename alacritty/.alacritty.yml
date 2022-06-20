@@ -1,0 +1,12 @@
+window:
+  padding:
+    x: 8
+    y: 4
+
+font:
+  size: 14
+
+key_bindings:
+  - { key: Key0,     mods: Command, action: ResetFontSize }
+  - { key: Equals,   mods: Command, action: IncreaseFontSize }
+  - { key: Minus,    mods: Command, action: DecreaseFontSize }
