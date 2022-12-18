@@ -8,3 +8,4 @@ sources:
         - ruby
         - screen
         - vim
+        - zsh
