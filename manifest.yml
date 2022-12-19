@@ -1,4 +1,5 @@
 sources:
+        - alacritty
         - bash
         - emacs
         - git
