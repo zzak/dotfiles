@@ -10,3 +10,4 @@ sources:
         - screen
         - vim
         - zsh
+        - tmux
