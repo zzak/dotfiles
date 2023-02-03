@@ -14,7 +14,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-export PATH="$(brew --prefix)/opt/openjdk@11/bin:$PATH"
+#export PATH="$(brew --prefix)/opt/openjdk@11/bin:$PATH"
 
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
@@ -55,7 +55,65 @@ export LDFLAGS="-L$(brew --prefix)/opt/libxml2/lib"
 export CPPFLAGS="-I$(brew --prefix)/opt/libxml2/include"
 
 export LDFLAGS="-L$(brew --prefix)/opt/libyaml/lib"
+export CPPFLAGS="-I$(brew --prefix)/opt/libyaml/include"
 
 #export PATH="$(brew --prefix)/opt/sqlite/bin:$PATH"
-#export LDFLAGS="-L$(brew --prefix)/opt/sqlite/lib"
-#export CPPFLAGS="-I$(brew --prefix)/opt/sqlite/include"
+export LDFLAGS="-L$(brew --prefix)/opt/sqlite/lib"
+export CPPFLAGS="-I$(brew --prefix)/opt/sqlite/include"
+
+export PATH="$(brew --prefix)/opt/openjdk@17/bin:$PATH"
+
+export JAVA_HOME="$(brew --prefix openjdk@17)"
+
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+#export JAVA_OPTS="--add-opens java.base/sun.nio.ch=org.jruby.dist --add-opens java.base/java.io=org.jruby.dist"
+
+setopt extended_glob
+
+alias default-branch="git branch -rl '*/HEAD' | awk -F/ '{print \$NF}'"
+alias squash="git reset \$(git merge-base \$(default-branch) \$(git rev-parse --abbrev-ref HEAD))"
+
+timeago() {
+  if [ -n "$1" ]
+  then
+    date +"%Y-%m-%d" -d "$1 ago"
+  else
+    date +"%Y-%m-%d" -d "1 week ago"
+  fi
+}
+
+summary() {
+  git log --since="$(timeago "$1")" --first-parent
+}
+
+detail() {
+  git lg --since="$(timeago "$1")" --first-parent
+}
+
+alias detailed="detail"
+
+export EDITOR=code
+
+list_open_sockets() {
+  find / -type s
+}
+
+docker_clear_containers() {
+  docker rm -f $(docker ps -a -q)
+}
+
+docker_clear_images() {
+  docker rmi -f $(docker images -a -q)
+}
+
+docker_clear_volumes() {
+  docker volume rm $(docker volume ls -q)
+}
+
+genpass() {
+  ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
+}
+
+alias cdtmp="cd `mktemp -d`"
+
