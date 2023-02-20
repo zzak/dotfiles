@@ -25,49 +25,51 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 #for mandir in "$(brew --prefix)/opt/"*"/share/man/man1"; do export MANPATH=$mandir:$MANPATH; done
 
 # Use GNU coreutils instead of the default MacOS
-export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+#export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 
 # Use GNU make instead of the default MacOS
-export PATH="$(brew --prefix)/opt/make/libexec/gnubin:$PATH"
+#export PATH="$(brew --prefix)/opt/make/libexec/gnubin:$PATH"
 
-source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
-source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
+source $(brew --prefix chruby)/share/chruby/chruby.sh
+source $(brew --prefix chruby)/share/chruby/auto.sh
 
 #export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
 #export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/opt/openssl@3/lib/"
 
-export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
-export LDFLAGS="-L$(brew --prefix)/opt/openssl@3/lib"
-export CPPFLAGS="-I$(brew --prefix)/opt/openssl@3/include"
+#export PATH="$(brew --prefix)/opt/openssl@3/bin:$PATH"
+#export LDFLAGS="-L$(brew --prefix)/opt/openssl@3/lib $LDFLAGS"
+#export CPPFLAGS="-I$(brew --prefix)/opt/openssl@3/include $CPPFLAGS"
 
-#export PATH="$(brew --prefix)/opt/openssl@1.1/bin:$PATH"
-#export LDFLAGS="-L$(brew --prefix)/opt/openssl@1.1/lib"
-#export CPPFLAGS="-I$(brew --prefix)/opt/openssl@1.1/include"
+export PATH="$(brew --prefix openssl@1.1)/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix openssl@1.1)/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix openssl@1.1)/include $CPPFLAGS"
+export PKG_CONFIG_PATH="$(brew --prefix openssl@1.1)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-export PATH="$(brew --prefix)/opt/bison/bin:$PATH"
-export LDFLAGS="-L$(brew --prefix)/opt/bison/lib"
-export PATH="$(brew --prefix)/opt/libpq/bin:$PATH"
-export PATH="$(brew --prefix)/opt/mysql-client/bin:$PATH"
+export PATH="$(brew --prefix bison)/bin:$PATH"
+export PATH="$(brew --prefix libxml2)/bin:$PATH"
+export PATH="$(brew --prefix libpq)/bin:$PATH"
+export PATH="$(brew --prefix mysql-client)/bin:$PATH"
 
-export PATH="$(brew --prefix)/opt/libxml2/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix bison)/lib $LDFLAGS"
+export LDFLAGS="-L$(brew --prefix libxml2)/lib $LDFLAGS"
+export LDFLAGS="-L$(brew --prefix libyaml)/lib $LDFLAGS"
 
-export LDFLAGS="-L$(brew --prefix)/opt/libxml2/lib"
-export CPPFLAGS="-I$(brew --prefix)/opt/libxml2/include"
+export CPPFLAGS="-I$(brew --prefix libxml2)/include $CPPFLAGS"
+export CPPFLAGS="-I$(brew --prefix libyaml)/include $CPPFLAGS"
 
-export LDFLAGS="-L$(brew --prefix)/opt/libyaml/lib"
-export CPPFLAGS="-I$(brew --prefix)/opt/libyaml/include"
+export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 #export PATH="$(brew --prefix)/opt/sqlite/bin:$PATH"
-export LDFLAGS="-L$(brew --prefix)/opt/sqlite/lib"
-export CPPFLAGS="-I$(brew --prefix)/opt/sqlite/include"
+export LDFLAGS="-L$(brew --prefix sqlite)/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix sqlite)/include $CPPFLAGS"
 
-export PATH="$(brew --prefix)/opt/openjdk@17/bin:$PATH"
+export PATH="$(brew --prefix openjdk@17)/bin:$PATH"
 
 export JAVA_HOME="$(brew --prefix openjdk@17)"
 
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export CPPFLAGS="-I $(brew --prefix openjdk)/include $CPPFLAGS"
 
-#export JAVA_OPTS="--add-opens java.base/sun.nio.ch=org.jruby.dist --add-opens java.base/java.io=org.jruby.dist"
+export WITH_OPT_DIR="$(brew --prefix openssl@1.1):$(brew --prefix readline):$(brew --prefix libyaml):$(brew --prefix gdbm)"
 
 setopt extended_glob
 
@@ -117,3 +119,15 @@ genpass() {
 
 alias cdtmp="cd `mktemp -d`"
 
+# zsh history
+export HISTSIZE=1000000000
+export HISTFILESIZE=$HISTSIZE
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
+export HISTCONTROL=ignoredups
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+
+export GPG_TTY=$(tty)
