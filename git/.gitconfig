@@ -1,6 +1,7 @@
 [user]
   name = zzak
   email = zzakscott@gmail.com
+	signingkey = 213927DFCF4FF102
 [github]
   user = zzak
 [color]
@@ -41,3 +42,5 @@
 	required = true
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[commit]
+	gpgsign = true
