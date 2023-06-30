@@ -74,7 +74,7 @@ export WITH_OPT_DIR="$(brew --prefix openssl@1.1):$(brew --prefix readline):$(br
 setopt extended_glob
 
 alias default-branch="git branch -rl '*/HEAD' | awk -F/ '{print \$NF}'"
-alias squash="git reset \$(git merge-base \$(default-branch) \$(git rev-parse --abbrev-ref HEAD))"
+alias squash="git reset \$(git merge-base \${BRANCH-\$(default-branch)} \$(git rev-parse --abbrev-ref \${BRANCH-HEAD}))"
 
 timeago() {
   if [ -n "$1" ]
