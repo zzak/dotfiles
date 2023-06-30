@@ -41,10 +41,10 @@
 (setq default-frame-alist '((font . "Source Code Pro-14")))
 
 ;; make emacs work in macos
-(setq mac-option-key-is-meta nil
-      mac-command-key-is-meta t
-      mac-command-modifier 'meta
-      mac-option-modifier 'alt)
+;(setq mac-option-key-is-meta nil
+;      mac-command-key-is-meta t
+;      mac-command-modifier 'meta
+;      mac-option-modifier 'alt)
 
 ;; This works for copying, but not pasting for some reason
 (setq select-enable-clipboard t)
@@ -247,6 +247,7 @@
 
 (add-hook 'ruby-mode-hook
           '(lambda ()
+             (lsp)
              (setq flycheck-checker 'ruby-rubocop)
              (flycheck-mode 1)))
 
