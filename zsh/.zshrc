@@ -63,6 +63,8 @@ export PKG_CONFIG_PATH="$(brew --prefix libxml2)/lib/pkgconfig:$PKG_CONFIG_PATH"
 export LDFLAGS="-L$(brew --prefix sqlite)/lib $LDFLAGS"
 export CPPFLAGS="-I$(brew --prefix sqlite)/include $CPPFLAGS"
 
+export LDFLAGS="-L$(brew --prefix )/lib $LDFLAGS"
+
 export PATH="$(brew --prefix openjdk@17)/bin:$PATH"
 
 export JAVA_HOME="$(brew --prefix openjdk@17)"
