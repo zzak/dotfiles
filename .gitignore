@@ -5,3 +5,5 @@
 /emacs/.emacs.d/forge-database.sqlite
 /emacs/.emacs.d/.cache
 /emacs/.emacs.d/.lsp-session-v1
+
+/tmux/.tmux/plugins/

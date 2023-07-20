@@ -235,3 +235,6 @@
 [submodule "emacs/.emacs.d/packages/lsp-mode"]
 	path = emacs/.emacs.d/packages/lsp-mode
 	url = https://github.com/emacs-lsp/lsp-mode
+[submodule "tmux/.tmux/plugins/tpm"]
+	path = tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
