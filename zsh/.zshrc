@@ -19,6 +19,8 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
+export PATH="$HOME/.rd/bin:$PATH"
+
 #for bindir in "$(brew --prefix)/opt/"*"/libexec/gnubin"; do export PATH=$bindir:$PATH; done
 #for bindir in "$(brew --prefix)/opt/"*"/bin"; do export PATH=$bindir:$PATH; done
 #for mandir in "$(brew --prefix)/opt/"*"/libexec/gnuman"; do export MANPATH=$mandir:$MANPATH; done
@@ -136,3 +138,6 @@ export GPG_TTY=$(tty)
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/zzak/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
