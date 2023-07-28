@@ -88,9 +88,9 @@ tentimes() {
 timeago() {
   if [ -n "$1" ]
   then
-    date +"%Y-%m-%d" -d "$1 ago"
+    gdate +"%Y-%m-%d" -d "$1 ago"
   else
-    date +"%Y-%m-%d" -d "1 week ago"
+    gdate +"%Y-%m-%d" -d "1 week ago"
   fi
 }
 
