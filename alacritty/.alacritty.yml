@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 8
-    y: 4
+    x: 15
+    y: 16
   dynamic_title: true
 
 font:
