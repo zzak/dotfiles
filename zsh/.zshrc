@@ -132,6 +132,16 @@ genpass() {
 
 alias cdtmp="cd `mktemp -d`"
 
+if command -v eza >/dev/null 2>&1; then
+  alias ls="eza -l"
+fi
+
+function chpwd() {
+  if [[ -f "bin/rails" ]]; then
+    alias r="bin/rails"
+  fi
+}
+
 tmux-window-name() {
   ($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
 }
