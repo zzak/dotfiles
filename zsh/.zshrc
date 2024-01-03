@@ -78,8 +78,28 @@ export WITH_OPT_DIR="$(brew --prefix openssl@1.1):$(brew --prefix readline):$(br
 
 setopt extended_glob
 
-alias default-branch="git branch -rl '*/HEAD' | awk -F/ '{print \$NF}'"
+git_remote() {
+  remotes=$(git remote)
+  if [[ $remotes == *"upstream"* ]]; then
+    echo "upstream"
+  else
+    echo "origin"
+  fi
+}
+
+default_branch() {
+  git remote show $(git_remote) | grep 'HEAD branch' | cut -d' ' -f5
+}
+
+#alias default-branch="git branch -rl '*/HEAD' | awk -F/ '{print \$NF}'"
 alias squash="git reset \$(git merge-base \${BRANCH-\$(default-branch)} \$(git rev-parse --abbrev-ref \${BRANCH-HEAD}))"
+
+git_sync() {
+  git fetch origin --prune
+  git fetch $(git_remote) --prune
+  git pull $(git_remote) $(default_branch)
+  git push origin $(default_branch)
+}
 
 tentimes() {
   for i in {1..10}; do exec $1; done
@@ -120,6 +140,10 @@ docker_clear_containers() {
 
 docker_clear_images() {
   docker rmi -f $(docker images -a -q)
+}
+
+docker_clear_images_dangling() {
+  docker rmi $(docker images -a|grep "<none>"|awk '$1=="<none>" {print $3}')
 }
 
 docker_clear_volumes() {
