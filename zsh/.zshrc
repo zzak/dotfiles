@@ -101,8 +101,16 @@ git_sync() {
   git push origin $(default_branch)
 }
 
-tentimes() {
-  for i in {1..10}; do exec $1; done
+n_times_do() {
+  local n=$1
+  local command=$2
+
+  for ((i=1; i<=n; i++))
+  do
+    eval $command &
+  done
+
+  wait
 }
 
 timeago() {
