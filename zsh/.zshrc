@@ -99,7 +99,7 @@ default_branch() {
 }
 
 #alias default-branch="git branch -rl '*/HEAD' | awk -F/ '{print \$NF}'"
-alias squash="git reset \$(git merge-base \${BRANCH-\$(default-branch)} \$(git rev-parse --abbrev-ref \${BRANCH-HEAD}))"
+alias squash="git reset \$(git merge-base \${BRANCH-\$(default_branch)} \$(git rev-parse --abbrev-ref \${BRANCH-HEAD}))"
 
 git_sync() {
   git fetch origin --prune
