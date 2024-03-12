@@ -19,7 +19,10 @@ bindkey '^[^M' autosuggest-accept  # shift + tab  | autosuggest
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
-export PATH="$HOME/.rd/bin:$PATH"
+#export PATH="$HOME/.rd/bin:$PATH"
+export PATH="$HOME/.docker/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
+
 
 #for bindir in "$(brew --prefix)/opt/"*"/libexec/gnubin"; do export PATH=$bindir:$PATH; done
 #for bindir in "$(brew --prefix)/opt/"*"/bin"; do export PATH=$bindir:$PATH; done
