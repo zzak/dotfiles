@@ -71,11 +71,15 @@ export CPPFLAGS="-I$(brew --prefix sqlite)/include $CPPFLAGS"
 
 export LDFLAGS="-L$(brew --prefix )/lib $LDFLAGS"
 
-export PATH="$(brew --prefix openjdk@17)/bin:$PATH"
+## OpenJDK 17
+#export PATH="$(brew --prefix openjdk@17)/bin:$PATH"
+#export JAVA_HOME="$(brew --prefix openjdk@17)"
+#export CPPFLAGS="-I $(brew --prefix openjdk)/include $CPPFLAGS"
 
-export JAVA_HOME="$(brew --prefix openjdk@17)"
-
-export CPPFLAGS="-I $(brew --prefix openjdk)/include $CPPFLAGS"
+## OpenJDK 21
+export PATH="$(brew --prefix openjdk@21)/bin:$PATH"
+export JAVA_HOME="$(brew --prefix openjdk@21)"
+export CPPFLAGS="-I $(brew --prefix openjdk@21)/include $CPPFLAGS"
 
 export WITH_OPT_DIR="$(brew --prefix openssl@1.1):$(brew --prefix readline):$(brew --prefix libyaml):$(brew --prefix gdbm)"
 
