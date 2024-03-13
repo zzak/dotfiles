@@ -44,3 +44,5 @@
 	insteadOf = https://github.com/
 [commit]
 	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
