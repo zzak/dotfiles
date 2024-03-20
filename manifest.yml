@@ -3,8 +3,6 @@ sources:
         - bash
         - emacs
         - git
-        - lein:
-                prefix: .lein
         - lisp
         - ruby
         - screen

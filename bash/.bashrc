@@ -80,28 +80,11 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 CLICOLOR=1
 TERM=xterm-256color
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -129,139 +112,90 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=em
 export SVN_EDITOR=em
 
-if [ -f /usr/local/share/chruby/chruby.sh ]; then
-  source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
-
-  chruby `chruby | head -1 | cut -b 4-`
-fi
-
-function new_log() {
-  DATE=`date +%Y-%m-%d`
-  STAMP=`date "+%a %b %e %T %Y"`
-
-  echo "$STAMP
-    " > "$DATE.md" && $EDITOR "$DATE.md"
-}
-
-function list_open_sockets() {
-  find / -type s
-}
-
-function docker_clear_containers() {
-  docker rm -f $(docker ps -a -q)
-}
-
-function docker_clear_images() {
-  docker rmi -f $(docker images -a -q)
-}
-
-function docker_clear_volumes() {
-  docker volume rm $(docker volume ls -q)
-}
-
-function genpass() {
-  ruby -rsecurerandom -e 'puts SecureRandom.hex(16)'
-}
-
-if command -v brew; then
-  # homebrew completion stuff
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+function git_remote() {
+  remotes=$(git remote)
+  if [[ $remotes == *"upstream"* ]]; then
+    echo "upstream"
+  else
+    echo "origin"
   fi
-  if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
-    . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+}
+
+function default_branch() {
+  git remote show $(git_remote) | grep 'HEAD branch' | cut -d' ' -f5
+}
+
+#alias default-branch="git branch -rl '*/HEAD' | awk -F/ '{print \$NF}'"
+alias squash="git reset \$(git merge-base \${BRANCH-\$(default_branch)} \$(git rev-parse --abbrev-ref \${BRANCH-HEAD}))"
+
+function git_sync() {
+  git fetch origin --prune
+  git fetch $(git_remote) --prune
+  git pull $(git_remote) $(default_branch)
+  git push origin $(default_branch)
+}
+
+function timeago() {
+  if [ -n "$1" ]
+  then
+    gdate +"%Y-%m-%d" -d "$1 ago"
+  else
+    gdate +"%Y-%m-%d" -d "1 week ago"
   fi
-  if [ -f `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash ]; then
-    . `brew --prefix`/etc/bash_completion.d/git-flow-completion.bash
-  fi
-fi
+}
 
-### Linuxbrew.sh
-#export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-#export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-#export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-#### Add Linuxbrew to your PATH
-#export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+function timestamp() {
+  date +"%Y-%m-%d-%s"
+}
 
-### Add JAVA_HOME
-#export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+function summary() {
+  git log --since="$(timeago "$1")" --first-parent
+}
 
-### Add IntelliJ IDEA
-export PATH="$HOME/.itj/bin:$PATH"
+function detail() {
+  git lg --since="$(timeago "$1")" --first-parent
+}
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+alias detailed="detail"
+
+alias cdtmp="cd `mktemp -d`"
 
 ### Add ~/.bin to PATH
 export PATH="${HOME}/.bin:$PATH"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+### Add ~/.cargo/bin to PATH
+export PATH="${HOME}/.cargo/bin:$PATH"
 
-#export GOROOT="$HOME/go"
-#export GOPATH="$HOME/go"
-#export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
-
-export PATH="$HOME/.bin/elixir/bin:$PATH"
-
-export PATH="$PATH:$HOME/.roswell/bin"
-
-### Firefox
-export PATH="$HOME/.firefox:$PATH"
-
-### Binaries installed by pip
-export PATH="$PATH:$HOME/.local/bin"
-
-### gometalinter
-export PATH="$PATH:$HOME/.bin/gometalinter"
+if command -v eza &> /dev/null
+then
+    alias ls="eza -l"
+fi
 
 ### pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+### nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+
+### rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 ### Ensure gnome-keyring-daemon is running, so we don't get prompted for SSH passwords all the time
-#eval `gnome-keyring-daemon --start`
+eval `gnome-keyring-daemon --start`
 
 #setxkbmap -option ctrl:nocaps
 
-### nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GPG_TTY=$(tty)
 
-enter_directory() {
-  if [[ $PWD == $PREV_PWD ]]; then
-    return
-  fi
+### START eval hooks
 
-  PREV_PWD=$PWD
-  [[ -f ".nvmrc" ]] && nvm use
-}
+eval "$(direnv hook bash)"
+eval "$(nodenv init - bash)"
+eval "$(rbenv init - bash)"
 
-export PROMPT_COMMAND=enter_directory
+### END eval hooks
 
-### Add /usr/sbin to $PATH
-export PATH="$PATH:/usr/sbin"
 
-### Add krew to PATH
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/zzak/src/google-cloud-sdk/path.bash.inc' ]; then . '/home/zzak/src/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/zzak/src/google-cloud-sdk/completion.bash.inc' ]; then . '/home/zzak/src/google-cloud-sdk/completion.bash.inc'; fi
-
-export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-
-if [ -d '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk' ]; then
-  source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
-  source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
-fi
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/zzak/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
