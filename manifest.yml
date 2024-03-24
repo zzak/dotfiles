@@ -1,6 +1,7 @@
 sources:
         - alacritty
         - bash
+        #- tmux-powerline
         - emacs
         - git
         - lisp
