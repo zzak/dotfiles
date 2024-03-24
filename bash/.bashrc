@@ -109,8 +109,8 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # editor
-export EDITOR=em
-export SVN_EDITOR=em
+#export EDITOR=em
+#export SVN_EDITOR=em
 
 function git_remote() {
   remotes=$(git remote)
@@ -188,6 +188,15 @@ eval `gnome-keyring-daemon --start`
 #setxkbmap -option ctrl:nocaps
 
 export GPG_TTY=$(tty)
+
+function tmux-window-name() {
+  if [ -n "$TMUX" ]; then
+    ($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+  fi
+}
+
+PROMPT_COMMAND="tmux-window-name"
+
 
 ### START eval hooks
 
