@@ -203,6 +203,7 @@ PROMPT_COMMAND="tmux-window-name"
 eval "$(direnv hook bash)"
 eval "$(nodenv init - bash)"
 eval "$(rbenv init - bash)"
+eval "$(gh copilot alias -- bash)"
 
 ### END eval hooks
 
